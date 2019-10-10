@@ -12118,7 +12118,7 @@ experiments in TryTripDB for the Treu927 genome. This link (<a href="https://tri
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Processing-of-proteomics-data">Processing of proteomics data<a class="anchor-link" href="#Processing-of-proteomics-data">&#182;</a></h2><h3 id="BSF-PCF-fold-change">BSF PCF fold change<a class="anchor-link" href="#BSF-PCF-fold-change">&#182;</a></h3><p>TryTripDB contains 4 proteomic datasets that analyse of the differential protein expression between the Procyclic form (PCF) and BloodStream form (BSF) parasites. Two datasets (<a href="https://tritrypdb.org/tritrypdb/app/record/dataset/DS_cb23da819c">Urbaniak 2012</a>  and <a href="https://tritrypdb.org/tritrypdb/app/record/dataset/DS_24b68cb68a">Urbaniak 2013</a>) were produced in our research centre and two others were reported in <a href="https://tritrypdb.org/tritrypdb/app/record/dataset/DS_1ec24003f1">Butter et al. 2013</a>.
+<h2 id="Processing-of-proteomics-data">Processing of proteomics data<a class="anchor-link" href="#Processing-of-proteomics-data">&#182;</a></h2><h3 id="BSF-PCF-fold-change">BSF PCF fold change<a class="anchor-link" href="#BSF-PCF-fold-change">&#182;</a></h3><p>TryTripDB contains 6 proteomic datasets that analyse  the differential protein expression between the Procyclic form (PCF) and BloodStream form (BSF) parasites stages. Two datasets (<a href="https://tritrypdb.org/tritrypdb/app/record/dataset/DS_cb23da819c">Urbaniak 2012</a>  and <a href="https://tritrypdb.org/tritrypdb/app/record/dataset/DS_24b68cb68a">Urbaniak 2013</a>) were produced in our research centre and two others were reported in <a href="https://tritrypdb.org/tritrypdb/app/record/dataset/DS_1ec24003f1">Butter et al. 2013</a>. Two other experiments were produced by <a href="https://tritrypdb.org/tritrypdb/app/record/dataset/DS_1e1fb1711d">Gunasekera K et al 2012 </a> differentiating between Long Slender (LS) and  Short Stumpy (SS) BSF life stage.
 We now aim to visualize the similarities between these datasets.</p>
 
 </div>
@@ -12133,14 +12133,17 @@ We now aim to visualize the similarities between these datasets.</p>
 <span class="n">proteomics_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Procyclic Form Vs Bloodstream Form (Tb PCFvBSF QProt SILAC)&#39;</span><span class="p">,</span>
                      <span class="s1">&#39;Pcf-Bsf ratio (Tb PCF BSF QPhosProt)&#39;</span><span class="p">,</span>
                     <span class="s1">&#39;Combined-PCF_light V BSF_heavy (Tb PCF BSF Prot SILAC-switch)&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;Combined-PCF_heavy V BSF_light (Tb PCF BSF Prot SILAC-switch)&#39;</span><span class="p">]</span>
+                    <span class="s1">&#39;Combined-PCF_heavy V BSF_light (Tb PCF BSF Prot SILAC-switch)&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;LS (Tb927 LSvSS QProt)&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;SS (Tb927 LSvSS QProt)&#39;</span><span class="p">,]</span>
 
-<span class="n">rename</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Urbaniak 2012&#39;</span><span class="p">,</span> <span class="s1">&#39;Urbaniak 2013&#39;</span><span class="p">,</span> <span class="s1">&#39;Butter 2013A&#39;</span><span class="p">,</span> <span class="s1">&#39;Butter 2013B&#39;</span><span class="p">]</span>
+<span class="n">rename</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;UrbA&#39;</span><span class="p">,</span> <span class="s1">&#39;UrbB&#39;</span><span class="p">,</span> <span class="s1">&#39;ButA&#39;</span><span class="p">,</span> 
+          <span class="s1">&#39;ButB&#39;</span><span class="p">,</span><span class="s1">&#39;GunLS&#39;</span><span class="p">,</span><span class="s1">&#39;GunSS&#39;</span><span class="p">]</span>
 <span class="c1">#rename = [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;]</span>
 <span class="n">temp_df</span> <span class="o">=</span> <span class="n">tryp_df</span><span class="p">[</span><span class="n">proteomics_columns</span><span class="p">]</span>
 <span class="n">temp_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">rename</span>
 
-<span class="n">im</span><span class="p">,</span> <span class="n">cbar</span> <span class="o">=</span> <span class="n">scripts</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">temp_df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+<span class="n">im</span><span class="p">,</span> <span class="n">cbar</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">scripts</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">temp_df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
                            <span class="n">temp_df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">temp_df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Wistia&quot;</span><span class="p">)</span>
 
 <span class="n">texts</span> <span class="o">=</span> <span class="n">scripts</span><span class="o">.</span><span class="n">annotate_heatmap</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">valfmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{x:.2f}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -12153,7 +12156,12 @@ We now aim to visualize the similarities between these datasets.</p>
     <span class="n">labelbottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;figures&#39;</span><span class="p">,</span><span class="s1">&#39;example_1&#39;</span><span class="p">,</span><span class="s1">&#39;Fig_1.png&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;HeatMap&#39;</span><span class="p">)</span>
+<span class="c1">#ax.set_xticks([]) </span>
+<span class="c1">#ax.set_yticks([]) </span>
+
+<span class="c1">#ax.tick_params(axis=u&#39;both&#39;, which=u&#39;both&#39;,length=0)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;figures&#39;</span><span class="p">,</span><span class="s1">&#39;example_1&#39;</span><span class="p">,</span><span class="s1">&#39;Fig_1a.png&#39;</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -12183,24 +12191,60 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scripts</span><span class="o">.</span><span class="n">plot_correlation</span><span class="p">(</span><span class="n">temp_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;figures&#39;</span><span class="p">,</span><span class="s1">&#39;example_1&#39;</span><span class="p">,</span><span class="s1">&#39;Fig_1b.png&#39;</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_17_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The figure shows a good reproducibility between all the datasets. Now we normalize and average the datasets.</p>
+<p>The figure shows a good reproducibility between all the dataset. Now we normalize and average the dataset, but we keep the SS experimet out to be used as a descriptor by itself.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ss</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="k">del</span> <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;GunSS&#39;</span><span class="p">]</span>
 <span class="n">temp_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ss</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">temp_df</span><span class="p">),</span> 
                      <span class="n">columns</span><span class="o">=</span><span class="n">temp_df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">temp_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;merged&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">temp_df</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;merged&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">temp_df</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12218,7 +12262,7 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#visualization of missing data</span>
@@ -12247,7 +12291,7 @@ We now aim to visualize the similarities between these datasets.</p>
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_20_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_21_0.png"
 >
 </div>
 
@@ -12268,11 +12312,12 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#adding our merged feature</span>
 <span class="n">ml_df</span><span class="p">[</span><span class="s1">&#39;EF_merged_PCF_BSF&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;merged&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">ml_df</span><span class="p">[</span><span class="s1">&#39;SS (Tb927 LSvSS QProt)&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">tryp_df</span><span class="p">[</span><span class="s1">&#39;SS (Tb927 LSvSS QProt)&#39;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ml_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
 <span class="c1">#removing old stuff</span>
@@ -12294,20 +12339,20 @@ We now aim to visualize the similarities between these datasets.</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(11832, 2)
+<pre>(11832, 3)
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[13]:</div>
+<div class="prompt output_prompt">Out[14]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>53</pre>
+<pre>105217</pre>
 </div>
 
 </div>
@@ -12327,7 +12372,7 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">tryp_df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
@@ -12369,7 +12414,7 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ml_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -12389,7 +12434,7 @@ We now aim to visualize the similarities between these datasets.</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(11832, 5)
+<pre>(11832, 6)
 </pre>
 </div>
 </div>
@@ -12400,7 +12445,7 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
@@ -12445,7 +12490,7 @@ We now aim to visualize the similarities between these datasets.</p>
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_26_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_27_0.png"
 >
 </div>
 
@@ -12466,7 +12511,7 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bsf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span><span class="s1">&#39;turnover&#39;</span><span class="p">,</span><span class="s1">&#39;BSF&#39;</span><span class="p">,</span><span class="s1">&#39;proteinGroups.zip&#39;</span><span class="p">))</span>
@@ -12502,7 +12547,7 @@ We now aim to visualize the similarities between these datasets.</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(11832, 7)
+<pre>(11832, 8)
 </pre>
 </div>
 </div>
@@ -12513,7 +12558,7 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -12546,7 +12591,7 @@ We now aim to visualize the similarities between these datasets.</p>
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_29_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_30_0.png"
 >
 </div>
 
@@ -12567,7 +12612,7 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#regression to compute the predicted MW </span>
@@ -12611,7 +12656,7 @@ We now aim to visualize the similarities between these datasets.</p>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[19]:</div>
+<div class="prompt output_prompt">Out[20]:</div>
 
 
 
@@ -12816,7 +12861,7 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#extract firsth feature</span>
@@ -12834,7 +12879,7 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">ml_df</span><span class="p">[</span><span class="s1">&#39;EF_MW_fc&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
@@ -12861,7 +12906,7 @@ We now aim to visualize the similarities between these datasets.</p>
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_33_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_34_0.png"
 >
 </div>
 
@@ -12873,7 +12918,7 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="p">[</span><span class="s1">&#39;EF_MW_fc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ml_df</span><span class="p">[</span><span class="s1">&#39;EF_MW_fc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -12886,7 +12931,7 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#extract second feature</span>
@@ -12923,7 +12968,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/26910529  ">26910529 </a> and 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#i&#39;m going to code the LS stage as -1 hour and PF stage as +100 hour</span>
@@ -12947,7 +12992,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/26910529  ">26910529 </a> and 
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[24]:</div>
+<div class="prompt output_prompt">Out[25]:</div>
 
 
 
@@ -12963,7 +13008,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/26910529  ">26910529 </a> and 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp_df</span> <span class="o">=</span> <span class="n">tryp_df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
@@ -12988,7 +13033,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/26910529  ">26910529 </a> and 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -13032,7 +13077,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/26910529  ">26910529 </a> and 
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_39_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_40_0.png"
 >
 </div>
 
@@ -13044,7 +13089,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/26910529  ">26910529 </a> and 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ml_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -13064,7 +13109,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/26910529  ">26910529 </a> and 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(11832, 12)
+<pre>(11832, 13)
 </pre>
 </div>
 </div>
@@ -13105,7 +13150,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19840382 ">19840382</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tryp_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;Blood Form (Tb LifeCyc Marray)&#39;</span><span class="p">:</span>
@@ -13139,7 +13184,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19840382 ">19840382</a> and
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[28]:</div>
+<div class="prompt output_prompt">Out[29]:</div>
 
 
 
@@ -13155,7 +13200,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19840382 ">19840382</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="p">[</span><span class="s1">&#39;EF_ma_BSF_to_PCF_1_min_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span>
@@ -13178,7 +13223,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19840382 ">19840382</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -13222,7 +13267,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19840382 ">19840382</a> and
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_46_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_47_0.png"
 >
 </div>
 
@@ -13246,7 +13291,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19857263">19857263</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tryp_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;bf-ld (Tb cBSFtoPCF Marray)&#39;</span><span class="p">:</span>
@@ -13285,7 +13330,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19857263">19857263</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="p">[</span><span class="s1">&#39;EF_ma_BSF_to_PCF_2_min_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span>
@@ -13310,7 +13355,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19857263">19857263</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -13354,7 +13399,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19857263">19857263</a> and
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_50_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_51_0.png"
 >
 </div>
 
@@ -13366,7 +13411,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19857263">19857263</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ml_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -13386,7 +13431,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19857263">19857263</a> and
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(11832, 18)
+<pre>(11832, 19)
 </pre>
 </div>
 </div>
@@ -13417,7 +13462,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19857263">19857263</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#set the Slender as the erliest time point</span>
@@ -13438,7 +13483,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19857263">19857263</a> and
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[35]:</div>
+<div class="prompt output_prompt">Out[36]:</div>
 
 
 
@@ -13454,7 +13499,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19857263">19857263</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="p">[</span><span class="s1">&#39;EF_ma_BSF_to_PCF_3_min_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span>
@@ -13477,7 +13522,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19857263">19857263</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -13521,7 +13566,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19857263">19857263</a> and
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_55_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_56_0.png"
 >
 </div>
 
@@ -13553,7 +13598,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/27237364 ">27237364</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#average blood and fat replicates</span>
@@ -13592,7 +13637,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/27237364 ">27237364</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -13620,7 +13665,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/27237364 ">27237364</a> and
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_59_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_60_0.png"
 >
 </div>
 
@@ -13632,7 +13677,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/27237364 ">27237364</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ml_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -13652,7 +13697,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/27237364 ">27237364</a> and
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(11832, 22)
+<pre>(11832, 23)
 </pre>
 </div>
 </div>
@@ -13675,7 +13720,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/30381351">30381351</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#we used only the fold change in SS</span>
@@ -13691,7 +13736,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/30381351">30381351</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -13719,7 +13764,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/30381351">30381351</a> and
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_63_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_64_0.png"
 >
 </div>
 
@@ -13743,7 +13788,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21483801 ">21483801</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">tryp_df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s1">&#39;Tb CellCyc RSeq&#39;</span> <span class="ow">in</span> <span class="n">n</span><span class="p">]</span>
@@ -13771,7 +13816,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21483801 ">21483801</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -13814,7 +13859,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21483801 ">21483801</a> and
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_66_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_67_0.png"
 >
 </div>
 
@@ -13826,7 +13871,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21483801 ">21483801</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ml_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -13846,7 +13891,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21483801 ">21483801</a> and
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(11832, 26)
+<pre>(11832, 27)
 </pre>
 </div>
 </div>
@@ -13869,7 +13914,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21483801 ">21483801</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tryp_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;antisense - Long Slender - unique only&#39;</span><span class="p">:</span>
@@ -13937,7 +13982,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21483801 ">21483801</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -13980,7 +14025,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21483801 ">21483801</a> and
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_70_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_71_0.png"
 >
 </div>
 
@@ -13992,7 +14037,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21483801 ">21483801</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tryp_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;sense - Long Slender - unique only&#39;</span><span class="p">:</span>
@@ -14058,7 +14103,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21483801 ">21483801</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -14101,7 +14146,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21483801 ">21483801</a> and
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_72_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_73_0.png"
 >
 </div>
 
@@ -14125,7 +14170,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/28288095 ">28288095</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># remove Rijo-Ferreira et al.columns, except for the result analysis</span>
@@ -14164,7 +14209,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/28288095 ">28288095</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -14180,7 +14225,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/28288095 ">28288095</a> and
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[51]:</div>
+<div class="prompt output_prompt">Out[52]:</div>
 
 
 
@@ -14205,6 +14250,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/28288095 ">28288095</a> and
       <th></th>
       <th>Gene ID</th>
       <th>EF_merged_PCF_BSF</th>
+      <th>SS (Tb927 LSvSS QProt)</th>
       <th>EF_CellCycle_min_max</th>
       <th>EF_CellCycle_max</th>
       <th>EF_CellCycle_min</th>
@@ -14212,7 +14258,6 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/28288095 ">28288095</a> and
       <th>EF_Abundance_PCF</th>
       <th>EF_MW_fc</th>
       <th>EF_in_complex</th>
-      <th>EF_prot_BSF_to_PCF_1_min_max</th>
       <th>...</th>
       <th>EF_RNA_BSF_to_PCF_anti_min</th>
       <th>EF_RNA_BSF_to_PCF_sen_min_max</th>
@@ -14231,6 +14276,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/28288095 ">28288095</a> and
       <th>0</th>
       <td>Tb04.24M18.150</td>
       <td>0.402849</td>
+      <td>NaN</td>
       <td>0.000000</td>
       <td>0.5</td>
       <td>0.5</td>
@@ -14238,7 +14284,6 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/28288095 ">28288095</a> and
       <td>7.631146</td>
       <td>229.805303</td>
       <td>-1.0</td>
-      <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
       <td>0.640412</td>
@@ -14260,9 +14305,9 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/28288095 ">28288095</a> and
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>0.000000</td>
       <td>-1.0</td>
-      <td>NaN</td>
       <td>...</td>
       <td>4.0</td>
       <td>2.586469</td>
@@ -14284,9 +14329,9 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/28288095 ">28288095</a> and
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>0.000000</td>
       <td>-1.0</td>
-      <td>NaN</td>
       <td>...</td>
       <td>2.0</td>
       <td>3.906891</td>
@@ -14306,11 +14351,11 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/28288095 ">28288095</a> and
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>7.606765</td>
       <td>7.829130</td>
       <td>0.000000</td>
       <td>-1.0</td>
-      <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
       <td>0.000000</td>
@@ -14327,6 +14372,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/28288095 ">28288095</a> and
       <th>4</th>
       <td>Tb05.5K5.100</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>0.263034</td>
       <td>11.0</td>
       <td>10.0</td>
@@ -14334,7 +14380,6 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/28288095 ">28288095</a> and
       <td>7.772565</td>
       <td>20.888992</td>
       <td>-1.0</td>
-      <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
       <td>0.299290</td>
@@ -14349,7 +14394,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/28288095 ">28288095</a> and
     </tr>
   </tbody>
 </table>
-<p>5 rows × 38 columns</p>
+<p>5 rows × 39 columns</p>
 </div>
 </div>
 
@@ -14373,7 +14418,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/24442674 ">24442674</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#abundace</span>
@@ -14407,13 +14452,13 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/24442674 ">24442674</a> and
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[52]:</div>
+<div class="prompt output_prompt">Out[53]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(11832, 42)</pre>
+<pre>(11832, 43)</pre>
 </div>
 
 </div>
@@ -14424,7 +14469,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/24442674 ">24442674</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#differential abundace</span>
@@ -14457,13 +14502,13 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/24442674 ">24442674</a> and
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[53]:</div>
+<div class="prompt output_prompt">Out[54]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(11832, 44)</pre>
+<pre>(11832, 45)</pre>
 </div>
 
 </div>
@@ -14474,7 +14519,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/24442674 ">24442674</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -14516,7 +14561,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/24442674 ">24442674</a> and
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_79_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_80_0.png"
 >
 </div>
 
@@ -14528,7 +14573,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/24442674 ">24442674</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -14545,7 +14590,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/24442674 ">24442674</a> and
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[3]:</div>
+<div class="prompt output_prompt">Out[56]:</div>
 
 
 
@@ -14562,7 +14607,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/24442674 ">24442674</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -14599,7 +14644,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/24442674 ">24442674</a> and
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_81_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_82_0.png"
 >
 </div>
 
@@ -14632,7 +14677,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21363968">21363968</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;BFd3/Tet- (CDS only)&#39;</span>
@@ -14659,7 +14704,7 @@ for col in cols:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -14693,7 +14738,7 @@ for col in cols:
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_86_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_87_0.png"
 >
 </div>
 
@@ -14721,7 +14766,7 @@ for col in cols:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#processing of the signal peptide data</span>
@@ -14750,7 +14795,7 @@ for col in cols:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="o">.</span><span class="n">shape</span>
@@ -14766,13 +14811,13 @@ for col in cols:
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[59]:</div>
+<div class="prompt output_prompt">Out[61]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(11832, 46)</pre>
+<pre>(11832, 47)</pre>
 </div>
 
 </div>
@@ -14791,7 +14836,7 @@ for col in cols:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#read the gff file and process    </span>
@@ -14849,7 +14894,7 @@ for col in cols:
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[60]:</div>
+<div class="prompt output_prompt">Out[62]:</div>
 
 
 
@@ -15077,7 +15122,7 @@ for col in cols:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#add the new features</span>
@@ -15101,8 +15146,8 @@ for col in cols:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(11832, 46)
-(11832, 49)
+<pre>(11832, 47)
+(11832, 50)
 </pre>
 </div>
 </div>
@@ -15113,7 +15158,7 @@ for col in cols:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#tryp_df[&#39;# TM Domains&#39;]</span>
@@ -15126,7 +15171,7 @@ for col in cols:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Anoter normalization of the SNPs data</span>
@@ -15155,16 +15200,15 @@ for col in cols:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cols</span> <span class="o">=</span><span class="p">[</span>
     <span class="c1">#experiment features</span>
+    
     <span class="s1">&#39;DEAD:DQAD mutant - DHH1 mutant induced vs control (Tb427 DHH1 induced)&#39;</span><span class="p">,</span>
     <span class="s1">&#39;heatShock_vs_control (heat shock treated)&#39;</span><span class="p">,</span>
     <span class="s1">&#39;wild type - wild type induced vs control (Tb427 DHH1 induced)&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;LS (Tb927 LSvSS QProt)&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;SS (Tb927 LSvSS QProt)&#39;</span><span class="p">,</span>
     <span class="s1">&#39;Nuclear Enriched Sample (Tb927 Nuc Prot)&#39;</span><span class="p">,</span>
 
     <span class="c1">#sequence features</span>
@@ -15211,13 +15255,13 @@ for col in cols:
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[64]:</div>
+<div class="prompt output_prompt">Out[66]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(11832, 66)</pre>
+<pre>(11832, 65)</pre>
 </div>
 
 </div>
@@ -15228,7 +15272,7 @@ for col in cols:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -15244,7 +15288,7 @@ for col in cols:
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[65]:</div>
+<div class="prompt output_prompt">Out[67]:</div>
 
 
 
@@ -15269,6 +15313,7 @@ for col in cols:
       <th></th>
       <th>Gene ID</th>
       <th>EF_merged_PCF_BSF</th>
+      <th>EF_SS_QProt</th>
       <th>EF_CellCycle_min_max</th>
       <th>EF_CellCycle_max</th>
       <th>EF_CellCycle_min</th>
@@ -15276,9 +15321,8 @@ for col in cols:
       <th>EF_Abundance_PCF</th>
       <th>EF_MW_fc</th>
       <th>EF_in_complex</th>
-      <th>EF_prot_BSF_to_PCF_1_min_max</th>
       <th>...</th>
-      <th>EF_SS_QProt</th>
+      <th>EF_DHH1_induced</th>
       <th>EF_Nuclear_enriched</th>
       <th>Ortholog count</th>
       <th>Paralog count</th>
@@ -15295,6 +15339,7 @@ for col in cols:
       <th>0</th>
       <td>Tb04.24M18.150</td>
       <td>0.402849</td>
+      <td>NaN</td>
       <td>0.000000</td>
       <td>0.5</td>
       <td>0.5</td>
@@ -15302,9 +15347,8 @@ for col in cols:
       <td>7.631146</td>
       <td>229.805303</td>
       <td>-1.0</td>
-      <td>NaN</td>
       <td>...</td>
-      <td>NaN</td>
+      <td>-0.12</td>
       <td>NaN</td>
       <td>57</td>
       <td>1</td>
@@ -15324,9 +15368,9 @@ for col in cols:
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>0.000000</td>
       <td>-1.0</td>
-      <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -15348,9 +15392,9 @@ for col in cols:
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>0.000000</td>
       <td>-1.0</td>
-      <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -15370,11 +15414,11 @@ for col in cols:
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>7.606765</td>
       <td>7.829130</td>
       <td>0.000000</td>
       <td>-1.0</td>
-      <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -15391,6 +15435,7 @@ for col in cols:
       <th>4</th>
       <td>Tb05.5K5.100</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>0.263034</td>
       <td>11.0</td>
       <td>10.0</td>
@@ -15398,9 +15443,8 @@ for col in cols:
       <td>7.772565</td>
       <td>20.888992</td>
       <td>-1.0</td>
-      <td>NaN</td>
       <td>...</td>
-      <td>NaN</td>
+      <td>0.07</td>
       <td>NaN</td>
       <td>7</td>
       <td>1</td>
@@ -15413,7 +15457,7 @@ for col in cols:
     </tr>
   </tbody>
 </table>
-<p>5 rows × 66 columns</p>
+<p>5 rows × 65 columns</p>
 </div>
 </div>
 
@@ -15425,7 +15469,7 @@ for col in cols:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#[n for n in ml_df.columns if &#39;heatShock&#39; in n]</span>
@@ -15446,7 +15490,7 @@ for col in cols:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="prompt input_prompt">In&nbsp;[69]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#adding binary value, protein coding or not</span>
@@ -15477,7 +15521,7 @@ for col in cols:
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[67]:</div>
+<div class="prompt output_prompt">Out[69]:</div>
 
 
 
@@ -15505,7 +15549,7 @@ Name: prot_coding, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="prompt input_prompt">In&nbsp;[70]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">prepare_profet</span><span class="p">(</span><span class="n">infile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span><span class="s1">&#39;profet.zip&#39;</span><span class="p">)):</span>
@@ -15545,8 +15589,8 @@ Name: prot_coding, dtype: int64</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(11832, 67)
-(11832, 1126)
+<pre>(11832, 66)
+(11832, 1125)
 </pre>
 </div>
 </div>
@@ -15566,7 +15610,7 @@ Name: prot_coding, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[69]:</div>
+<div class="prompt input_prompt">In&nbsp;[71]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
@@ -15621,7 +15665,7 @@ Name: prot_coding, dtype: int64</pre>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[69]:</div>
+<div class="prompt output_prompt">Out[71]:</div>
 
 
 
@@ -15802,7 +15846,7 @@ Name: prot_coding, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
+<div class="prompt input_prompt">In&nbsp;[72]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#add the features</span>
@@ -15825,8 +15869,8 @@ Name: prot_coding, dtype: int64</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(11832, 1126)
-(11832, 1411)
+<pre>(11832, 1125)
+(11832, 1410)
 </pre>
 </div>
 </div>
@@ -15845,7 +15889,7 @@ Name: prot_coding, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -15866,7 +15910,7 @@ Name: prot_coding, dtype: int64</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Memory usage of dataframe is 127.37 MB
+<pre>Memory usage of dataframe is 127.28 MB
 </pre>
 </div>
 </div>
@@ -15881,13 +15925,13 @@ Name: prot_coding, dtype: int64</pre>
 
  
  
-<div id="3b32af84-f59b-458c-a7b0-b9502288e8da"></div>
+<div id="3163d261-886a-4ff1-84c5-3e2f038f4a9b"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#3b32af84-f59b-458c-a7b0-b9502288e8da');
+var element = $('#3163d261-886a-4ff1-84c5-3e2f038f4a9b');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "a08fce725e2b4968a3790febb7de7dde", "version_major": 2, "version_minor": 0}
+{"model_id": "b46b36b412f144e8880854f7ec166357", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -15900,7 +15944,7 @@ var element = $('#3b32af84-f59b-458c-a7b0-b9502288e8da');
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-Memory usage after optimization is: 64.04 MB
+Memory usage after optimization is: 64.00 MB
 Decreased by 49.7%
 </pre>
 </div>
@@ -15912,7 +15956,7 @@ Decreased by 49.7%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="o">=</span><span class="n">ml_df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s1">&#39;Gene ID&#39;</span><span class="p">)</span>
@@ -15928,7 +15972,7 @@ Decreased by 49.7%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#uncomment if you start from here</span>
@@ -15943,7 +15987,7 @@ Decreased by 49.7%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="prompt input_prompt">In&nbsp;[76]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#ml_df.head()</span>
@@ -15969,7 +16013,7 @@ Decreased by 49.7%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="prompt input_prompt">In&nbsp;[77]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="mf">0.22179513</span> <span class="o">-</span> <span class="p">(</span><span class="mf">0.22179513</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
@@ -15985,7 +16029,7 @@ Decreased by 49.7%
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[75]:</div>
+<div class="prompt output_prompt">Out[77]:</div>
 
 
 
@@ -16011,7 +16055,7 @@ Decreased by 49.7%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[76]:</div>
+<div class="prompt input_prompt">In&nbsp;[78]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">turnover_bsf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span><span class="s1">&#39;turnover&#39;</span><span class="p">,</span><span class="s1">&#39;Table_S2.zip&#39;</span><span class="p">),</span> 
@@ -16054,7 +16098,7 @@ Decreased by 49.7%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="prompt input_prompt">In&nbsp;[79]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="n">target_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ml_df</span><span class="p">[</span><span class="s1">&#39;Gene ID&#39;</span><span class="p">]]</span>
@@ -16064,194 +16108,10 @@ Decreased by 49.7%
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[77]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Gene ID</th>
-      <th>EF_merged_PCF_BSF</th>
-      <th>EF_CellCycle_min_max</th>
-      <th>EF_CellCycle_max</th>
-      <th>EF_CellCycle_min</th>
-      <th>EF_Abundance_BSF</th>
-      <th>EF_Abundance_PCF</th>
-      <th>EF_MW_fc</th>
-      <th>EF_in_complex</th>
-      <th>EF_prot_BSF_to_PCF_1_min_max</th>
-      <th>...</th>
-      <th>TRG_Pf-PMV_PEXEL_1</th>
-      <th>TRG_PTS1</th>
-      <th>TRG_PTS2</th>
-      <th>ELM_CLV</th>
-      <th>ELM_DEG</th>
-      <th>ELM_DOC</th>
-      <th>ELM_LIG</th>
-      <th>ELM_MOD</th>
-      <th>ELM_TRG</th>
-      <th>target</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>16</th>
-      <td>Tb05.5K5.210</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>8.097232</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>-1.0</td>
-      <td>0.115345</td>
-      <td>...</td>
-      <td>4.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>25.0</td>
-      <td>3.0</td>
-      <td>24.0</td>
-      <td>101.0</td>
-      <td>129.0</td>
-      <td>17.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>123</th>
-      <td>Tb09.v4.0015</td>
-      <td>NaN</td>
-      <td>0.263034</td>
-      <td>8.0</td>
-      <td>0.5</td>
-      <td>7.749779</td>
-      <td>6.103549</td>
-      <td>165.901093</td>
-      <td>-1.0</td>
-      <td>0.113852</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>12.0</td>
-      <td>1.0</td>
-      <td>21.0</td>
-      <td>25.0</td>
-      <td>33.0</td>
-      <td>9.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>627</th>
-      <td>Tb11.02.5070b</td>
-      <td>NaN</td>
-      <td>0.137504</td>
-      <td>3.0</td>
-      <td>0.5</td>
-      <td>7.300305</td>
-      <td>7.716082</td>
-      <td>129.376068</td>
-      <td>-1.0</td>
-      <td>0.034738</td>
-      <td>...</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>15.0</td>
-      <td>2.0</td>
-      <td>12.0</td>
-      <td>35.0</td>
-      <td>31.0</td>
-      <td>2.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>908</th>
-      <td>Tb11.v5.0154</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>7.911051</td>
-      <td>7.178399</td>
-      <td>46.476665</td>
-      <td>-1.0</td>
-      <td>0.037350</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>19.0</td>
-      <td>3.0</td>
-      <td>21.0</td>
-      <td>70.0</td>
-      <td>80.0</td>
-      <td>5.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>945</th>
-      <td>Tb11.v5.0191</td>
-      <td>NaN</td>
-      <td>0.263034</td>
-      <td>0.5</td>
-      <td>3.0</td>
-      <td>6.970981</td>
-      <td>6.841282</td>
-      <td>90.802986</td>
-      <td>-1.0</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>26.0</td>
-      <td>4.0</td>
-      <td>18.0</td>
-      <td>56.0</td>
-      <td>57.0</td>
-      <td>10.0</td>
-      <td>1.0</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 1412 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[141]:</div>
+<div class="prompt input_prompt">In&nbsp;[80]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">ml_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">])</span>
@@ -16268,7 +16128,7 @@ Decreased by 49.7%
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[141]:</div>
+<div class="prompt output_prompt">Out[80]:</div>
 
 
 
@@ -16293,6 +16153,7 @@ Decreased by 49.7%
       <th></th>
       <th>Gene ID</th>
       <th>EF_merged_PCF_BSF</th>
+      <th>EF_SS_QProt</th>
       <th>EF_CellCycle_min_max</th>
       <th>EF_CellCycle_max</th>
       <th>EF_CellCycle_min</th>
@@ -16300,7 +16161,6 @@ Decreased by 49.7%
       <th>EF_Abundance_PCF</th>
       <th>EF_MW_fc</th>
       <th>EF_in_complex</th>
-      <th>EF_prot_BSF_to_PCF_1_min_max</th>
       <th>...</th>
       <th>TRG_Pf-PMV_PEXEL_1</th>
       <th>TRG_PTS1</th>
@@ -16318,6 +16178,7 @@ Decreased by 49.7%
     <tr>
       <th>16</th>
       <td>Tb05.5K5.210</td>
+      <td>-1.994036</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -16326,7 +16187,6 @@ Decreased by 49.7%
       <td>NaN</td>
       <td>0.000000</td>
       <td>-1.0</td>
-      <td>0.115345</td>
       <td>...</td>
       <td>4.0</td>
       <td>0.0</td>
@@ -16343,6 +16203,7 @@ Decreased by 49.7%
       <th>123</th>
       <td>Tb09.v4.0015</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>0.263034</td>
       <td>8.0</td>
       <td>0.5</td>
@@ -16350,7 +16211,6 @@ Decreased by 49.7%
       <td>6.103549</td>
       <td>165.901093</td>
       <td>-1.0</td>
-      <td>0.113852</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -16367,6 +16227,7 @@ Decreased by 49.7%
       <th>627</th>
       <td>Tb11.02.5070b</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>0.137504</td>
       <td>3.0</td>
       <td>0.5</td>
@@ -16374,7 +16235,6 @@ Decreased by 49.7%
       <td>7.716082</td>
       <td>129.376068</td>
       <td>-1.0</td>
-      <td>0.034738</td>
       <td>...</td>
       <td>1.0</td>
       <td>0.0</td>
@@ -16391,6 +16251,7 @@ Decreased by 49.7%
       <th>908</th>
       <td>Tb11.v5.0154</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>0.000000</td>
       <td>0.5</td>
       <td>0.5</td>
@@ -16398,7 +16259,6 @@ Decreased by 49.7%
       <td>7.178399</td>
       <td>46.476665</td>
       <td>-1.0</td>
-      <td>0.037350</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -16415,6 +16275,7 @@ Decreased by 49.7%
       <th>945</th>
       <td>Tb11.v5.0191</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>0.263034</td>
       <td>0.5</td>
       <td>3.0</td>
@@ -16422,7 +16283,6 @@ Decreased by 49.7%
       <td>6.841282</td>
       <td>90.802986</td>
       <td>-1.0</td>
-      <td>NaN</td>
       <td>...</td>
       <td>1.0</td>
       <td>0.0</td>
@@ -16437,7 +16297,7 @@ Decreased by 49.7%
     </tr>
   </tbody>
 </table>
-<p>5 rows × 1412 columns</p>
+<p>5 rows × 1411 columns</p>
 </div>
 </div>
 
@@ -16449,7 +16309,7 @@ Decreased by 49.7%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[142]:</div>
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
@@ -16463,7 +16323,7 @@ Decreased by 49.7%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[143]:</div>
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="o">=</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
@@ -16488,14 +16348,14 @@ Decreased by 49.7%
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(1674, 1408) (1674,)
+<pre>(1674, 1407) (1674,)
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[143]:</div>
+<div class="prompt output_prompt">Out[82]:</div>
 
 
 
@@ -16514,7 +16374,7 @@ Name: target, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[144]:</div>
+<div class="prompt input_prompt">In&nbsp;[83]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># very crude removal of high correlated features</span>
@@ -16543,7 +16403,7 @@ Name: target, dtype: int64</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Removing: 278 features
+<pre>Removing: 277 features
 </pre>
 </div>
 </div>
@@ -16554,7 +16414,7 @@ Name: target, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[145]:</div>
+<div class="prompt input_prompt">In&nbsp;[84]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -16576,7 +16436,7 @@ Name: target, dtype: int64</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(1674, 1408)
+<pre>(1674, 1407)
 (1674, 1130)
 </pre>
 </div>
@@ -16588,7 +16448,7 @@ Name: target, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[147]:</div>
+<div class="prompt input_prompt">In&nbsp;[85]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Strategy to input missing values / optional but usefull for </span>
@@ -16614,16 +16474,27 @@ Name: target, dtype: int64</pre>
 
  
  
-<div id="d29796c6-13bb-4dca-8708-b2bab5886d66"></div>
+<div id="78c1f481-f555-4a2d-b0dc-d36d361a7e7d"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#d29796c6-13bb-4dca-8708-b2bab5886d66');
+var element = $('#78c1f481-f555-4a2d-b0dc-d36d361a7e7d');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "6a2cab2dd4d440f59431ef9d2dd60469", "version_major": 2, "version_minor": 0}
+{"model_id": "2fe10205d39b4106a8603b3b59775168", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+</pre>
+</div>
 </div>
 
 </div>
@@ -16640,7 +16511,7 @@ var element = $('#d29796c6-13bb-4dca-8708-b2bab5886d66');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[148]:</div>
+<div class="prompt input_prompt">In&nbsp;[86]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
@@ -16689,13 +16560,13 @@ X_train: (1088, 1130) X_test: (586, 1130) y_train: (1088,) y_test (586,)
 
  
  
-<div id="0d8489e0-1252-4f57-8461-ffe69d821465"></div>
+<div id="92aae5e9-ac6a-42c3-8cc4-a037ea4e3a01"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#0d8489e0-1252-4f57-8461-ffe69d821465');
+var element = $('#92aae5e9-ac6a-42c3-8cc4-a037ea4e3a01');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "e1a031326545423e887707d98f85f14d", "version_major": 2, "version_minor": 0}
+{"model_id": "3bab649a9ec047cea24b9eeec886302a", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -16706,10 +16577,21 @@ var element = $('#0d8489e0-1252-4f57-8461-ffe69d821465');
 <div class="prompt"></div>
 
 
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_124_2.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_125_3.png"
 >
 </div>
 
@@ -16723,26 +16605,26 @@ var element = $('#0d8489e0-1252-4f57-8461-ffe69d821465');
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>              precision    recall  f1-score   support
 
-         0.0       0.61      0.71      0.66       257
-         1.0       0.74      0.65      0.69       329
+         0.0       0.60      0.69      0.64       258
+         1.0       0.72      0.64      0.68       328
 
-    accuracy                           0.68       586
-   macro avg       0.68      0.68      0.67       586
-weighted avg       0.68      0.68      0.68       586
+    accuracy                           0.66       586
+   macro avg       0.66      0.66      0.66       586
+weighted avg       0.67      0.66      0.66       586
 
-1 dummy_roc_auc_score: 0.5068493150684932
-1 blind_roc_auc_score: 0.6793135666386763
+1 dummy_roc_auc_score: 0.5137232059645853
+1 blind_roc_auc_score: 0.6635588012856872
 
 Confusion Matrix
-[[182  75]
- [115 214]]
+[[178  80]
+ [119 209]]
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[148]:</div>
+<div class="prompt output_prompt">Out[86]:</div>
 
 
 
@@ -16776,7 +16658,7 @@ Confusion Matrix
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[149]:</div>
+<div class="prompt input_prompt">In&nbsp;[87]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;boruta will take some times to run&#39;</span><span class="p">)</span>
@@ -16822,13 +16704,13 @@ Confusion Matrix
 
  
  
-<div id="e2817f61-2352-43d5-bd4e-5f1b906dfdce"></div>
+<div id="d56996fb-c9d3-4994-abef-2adb7d51476e"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#e2817f61-2352-43d5-bd4e-5f1b906dfdce');
+var element = $('#d56996fb-c9d3-4994-abef-2adb7d51476e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "a2d36bd833d240848f574a41aca7c362", "version_major": 2, "version_minor": 0}
+{"model_id": "a83d7105509a42cb8fed06639af34a2f", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -16840,8 +16722,8 @@ var element = $('#e2817f61-2352-43d5-bd4e-5f1b906dfdce');
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[ True  True  True ... False False False]
-[&#39;EF_merged_PCF_BSF&#39;, &#39;EF_CellCycle_min_max&#39;, &#39;EF_CellCycle_max&#39;, &#39;EF_CellCycle_min&#39;, &#39;EF_Abundance_BSF&#39;, &#39;EF_Abundance_PCF&#39;, &#39;EF_MW_fc&#39;, &#39;EF_prot_BSF_to_PCF_1_min_max&#39;, &#39;EF_prot_BSF_to_PCF_1_min&#39;, &#39;EF_ma_BSF_to_PCF_1_min_max&#39;, &#39;EF_fc_glucose_1&#39;, &#39;EF_RNA_BSF_to_PCF_anti_min_max&#39;, &#39;EF_RNA_BSF_to_PCF_sen_max&#39;, &#39;EF_RNA_BSF_to_PCF_sen_min&#39;, &#39;EF_mRNA_BSF_vs_PCF&#39;, &#39;sig_pep&#39;, &#39;Non-Coding SNPs All Strains&#39;, &#39;AA: K Frequency&#39;, &#39;AA: L Frequency&#39;, &#39;AA: S Frequency&#39;, &#39;AA: V Frequency&#39;, &#39;AA: Y Frequency&#39;, &#39;Binary AutoCorrellation (K,R):  Lag:12&#39;, &#39;Charge Distribution2001&#39;, &#39;Disorder Propensity Composition:1&#39;, &#39;Disorder Propensity Distribution2001&#39;, &#39;Disorder Propensity Distribution2050&#39;, &#39;Disorder Propensity Distribution2075&#39;, &#39;Disorder Propensity Transitions:12&#39;, &#39;Disorder_3:  Mirror K-mer : AAAAD&#39;, &#39;Disorder_3:  Mirror K-mer : AAADA&#39;, &#39;Disorder_3:  Mirror K-mer : AACAC&#39;, &#39;Disorder_3:  Mirror K-mer : AACCC&#39;, &#39;Disorder_3:  Mirror K-mer : ACCCA&#39;, &#39;Disorder_3:  Mirror K-mer : CAACC&#39;, &#39;Mutability aaScale - Window size:17 Average-Trimmed MAX&#39;, &#39;Potential N-Glycosylation Sites:Frequency&#39;, &#39;Secondary Str Distribution2075&#39;, &#39;Secondary Str Distribution3001&#39;, &#39;Secondary Str Transitions:12&#39;, &#39;Secondary Str Transitions:13&#39;, &#39;SecondaryStr_3:  Mirror K-mer : AACCA&#39;, &#39;SecondaryStr_3:  Mirror K-mer : ADDAD&#39;, &#39;SecondaryStr_3:  Mirror K-mer : DADDD&#39;, &#39;SecondaryStr_3:  Mirror K-mer : DDADD&#39;, &#39;Solvent Accessibility Transitions:23&#39;, &#39;SolventA_3:  Mirror K-mer : AAAAD&#39;, &#39;SolventA_3:  Mirror K-mer : AAAAH&#39;, &#39;SolventA_3:  Mirror K-mer : AAADA&#39;, &#39;SolventA_3:  Mirror K-mer : AAAHD&#39;, &#39;SolventA_3:  Mirror K-mer : AADAA&#39;, &#39;SolventA_3:  Mirror K-mer : ADDDD&#39;, &#39;SolventA_3:  Mirror K-mer : AHAAH&#39;, &#39;SolventA_3:  Mirror K-mer : AHAHA&#39;, &#39;SolventA_3:  Mirror K-mer : DAAAH&#39;, &#39;SolventA_3:  Mirror K-mer : DADDD&#39;, &#39;SolventA_3:  Mirror K-mer : DDADD&#39;, &#39;SolventA_3:  Mirror K-mer : DDHDH&#39;, &#39;SubSequence(segment-0)  aaScale:4Atch_4 Maximum&#39;, &#39;SubSequence(segment-0)  aaScale:4TOP_IDP Average&#39;, &#39;SubSequence(segment-0)  aaScale:4TOP_IDP Minimum&#39;, &#39;SubSequence(segment-0)  aaScale:4hp Average&#39;, &#39;SubSequence(segment-0)  aaScale:4hp Maximum&#39;, &#39;gg_4 aaScale - Window size:17 Average-Trimmed MAX&#39;, &#39;gg_5 aaScale - Window size:17 MAXIMUM &#39;, &#39;gg_7 aaScale - Window size:17 MAXIMUM &#39;, &#39;hp2: AAAAC&#39;, &#39;hp2: AACCA&#39;, &#39;hp2: AACCC&#39;, &#39;hp2: ACCCA&#39;, &#39;hp2: CAAAC&#39;, &#39;hp2: CAACC&#39;, &#39;hp2: CACCA&#39;, &#39;hp2: CCAAA&#39;, &#39;hp2: CCAAC&#39;, &#39;ofer14:  Mirror K-mer : AI&#39;, &#39;ofer14:  Mirror K-mer : DD&#39;, &#39;ofer14:  Mirror K-mer : FI&#39;, &#39;ofer14:  Mirror K-mer : IS&#39;, &#39;ofer14:  Mirror K-mer : KS&#39;, &#39;ofer_w8: AA: C Frequency&#39;, &#39;ofer_w8: AA: N Frequency&#39;, &#39;LIG_SUMO_SIM_anti_2&#39;]
+<pre>[ True False  True ... False False False]
+[&#39;EF_merged_PCF_BSF&#39;, &#39;EF_CellCycle_min_max&#39;, &#39;EF_CellCycle_max&#39;, &#39;EF_CellCycle_min&#39;, &#39;EF_Abundance_BSF&#39;, &#39;EF_Abundance_PCF&#39;, &#39;EF_MW_fc&#39;, &#39;EF_prot_BSF_to_PCF_1_min_max&#39;, &#39;EF_prot_BSF_to_PCF_1_min&#39;, &#39;EF_ma_BSF_to_PCF_1_min_max&#39;, &#39;EF_ma_BSF_to_PCF_2_min&#39;, &#39;EF_fc_glucose_1&#39;, &#39;EF_RNA_BSF_to_PCF_anti_min_max&#39;, &#39;EF_RNA_BSF_to_PCF_sen_max&#39;, &#39;EF_RNA_BSF_to_PCF_sen_min&#39;, &#39;EF_mRNA_BSF_vs_PCF&#39;, &#39;sig_pep&#39;, &#39;Non-Coding SNPs All Strains&#39;, &#39;AA: K Frequency&#39;, &#39;AA: L Frequency&#39;, &#39;AA: V Frequency&#39;, &#39;AA: Y Frequency&#39;, &#39;Binary AutoCorrellation (K,R):  Lag:12&#39;, &#39;Charge Distribution2001&#39;, &#39;Disorder Propensity Composition:1&#39;, &#39;Disorder Propensity Distribution2001&#39;, &#39;Disorder Propensity Distribution2050&#39;, &#39;Disorder Propensity Distribution2075&#39;, &#39;Disorder Propensity Transitions:12&#39;, &#39;Disorder_3:  Mirror K-mer : AAAAD&#39;, &#39;Disorder_3:  Mirror K-mer : AAADA&#39;, &#39;Disorder_3:  Mirror K-mer : AACAC&#39;, &#39;Disorder_3:  Mirror K-mer : AACCC&#39;, &#39;Disorder_3:  Mirror K-mer : ACCCA&#39;, &#39;Disorder_3:  Mirror K-mer : CAACC&#39;, &#39;Flexibility (B-values): Min&#39;, &#39;Mutability aaScale - Window size:17 Average-Trimmed MAX&#39;, &#39;Potential N-Glycosylation Sites:Frequency&#39;, &#39;Secondary Str Distribution2050&#39;, &#39;Secondary Str Distribution2075&#39;, &#39;Secondary Str Distribution3001&#39;, &#39;Secondary Str Transitions:12&#39;, &#39;Secondary Str Transitions:13&#39;, &#39;SecondaryStr_3:  Mirror K-mer : AACCA&#39;, &#39;SecondaryStr_3:  Mirror K-mer : ADDAD&#39;, &#39;SecondaryStr_3:  Mirror K-mer : ADDDC&#39;, &#39;SecondaryStr_3:  Mirror K-mer : DADDD&#39;, &#39;SecondaryStr_3:  Mirror K-mer : DDADD&#39;, &#39;Solvent Accessibility Transitions:23&#39;, &#39;SolventA_3:  Mirror K-mer : AAAAD&#39;, &#39;SolventA_3:  Mirror K-mer : AAAAH&#39;, &#39;SolventA_3:  Mirror K-mer : AAADA&#39;, &#39;SolventA_3:  Mirror K-mer : AAAHD&#39;, &#39;SolventA_3:  Mirror K-mer : AADAA&#39;, &#39;SolventA_3:  Mirror K-mer : ADDDD&#39;, &#39;SolventA_3:  Mirror K-mer : AHAAH&#39;, &#39;SolventA_3:  Mirror K-mer : AHAHA&#39;, &#39;SolventA_3:  Mirror K-mer : DAAAH&#39;, &#39;SolventA_3:  Mirror K-mer : DADDD&#39;, &#39;SolventA_3:  Mirror K-mer : DDADD&#39;, &#39;SolventA_3:  Mirror K-mer : DDHDH&#39;, &#39;SubSequence(segment-0)  aaScale:4Atch_4 Maximum&#39;, &#39;SubSequence(segment-0)  aaScale:4TOP_IDP Average&#39;, &#39;SubSequence(segment-0)  aaScale:4TOP_IDP Minimum&#39;, &#39;SubSequence(segment-0)  aaScale:4hp Average&#39;, &#39;gg_4 aaScale - Window size:17 Average-Trimmed MAX&#39;, &#39;gg_5 aaScale - Window size:17 MAXIMUM &#39;, &#39;gg_7 aaScale - Window size:17 MAXIMUM &#39;, &#39;hp2: AAAAC&#39;, &#39;hp2: AACCA&#39;, &#39;hp2: AACCC&#39;, &#39;hp2: ACCCA&#39;, &#39;hp2: CAAAC&#39;, &#39;hp2: CAACC&#39;, &#39;hp2: CACCA&#39;, &#39;hp2: CCAAA&#39;, &#39;hp2: CCAAC&#39;, &#39;ofer14:  Mirror K-mer : AI&#39;, &#39;ofer14:  Mirror K-mer : DD&#39;, &#39;ofer14:  Mirror K-mer : FI&#39;, &#39;ofer14:  Mirror K-mer : IS&#39;, &#39;ofer14:  Mirror K-mer : KS&#39;, &#39;ofer_w8: AA: C Frequency&#39;, &#39;ofer_w8: AA: N Frequency&#39;, &#39;LIG_SUMO_SIM_anti_2&#39;]
 </pre>
 </div>
 </div>
@@ -16852,7 +16734,7 @@ var element = $('#e2817f61-2352-43d5-bd4e-5f1b906dfdce');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[150]:</div>
+<div class="prompt input_prompt">In&nbsp;[88]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#second round</span>
@@ -16876,7 +16758,7 @@ var element = $('#e2817f61-2352-43d5-bd4e-5f1b906dfdce');
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>second round
 DataSet size
-X_train: (1088, 83) X_test: (586, 83) y_train: (1088,) y_test (586,)
+X_train: (1088, 85) X_test: (586, 85) y_train: (1088,) y_test (586,)
 </pre>
 </div>
 </div>
@@ -16891,13 +16773,13 @@ X_train: (1088, 83) X_test: (586, 83) y_train: (1088,) y_test (586,)
 
  
  
-<div id="aff5619b-0b30-40d0-8f41-11a9712a0629"></div>
+<div id="1f21facf-5ad3-4ca8-aa23-0a3541df1d31"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#aff5619b-0b30-40d0-8f41-11a9712a0629');
+var element = $('#1f21facf-5ad3-4ca8-aa23-0a3541df1d31');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "45e95c27f38e4ce48b20e2684d02e129", "version_major": 2, "version_minor": 0}
+{"model_id": "4fbfa0f9eb0040acac46a67fc71084c7", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -16911,7 +16793,7 @@ var element = $('#aff5619b-0b30-40d0-8f41-11a9712a0629');
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_127_2.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_128_2.png"
 >
 </div>
 
@@ -16925,19 +16807,19 @@ var element = $('#aff5619b-0b30-40d0-8f41-11a9712a0629');
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>              precision    recall  f1-score   support
 
-         0.0       0.67      0.71      0.69       280
-         1.0       0.72      0.68      0.70       306
+         0.0       0.66      0.70      0.68       281
+         1.0       0.71      0.67      0.69       305
 
-    accuracy                           0.70       586
-   macro avg       0.70      0.70      0.70       586
-weighted avg       0.70      0.70      0.70       586
+    accuracy                           0.69       586
+   macro avg       0.69      0.69      0.69       586
+weighted avg       0.69      0.69      0.69       586
 
-1 dummy_roc_auc_score: 0.5017531597646921
-1 blind_roc_auc_score: 0.6986461251167133
+1 dummy_roc_auc_score: 0.525645057953288
+1 blind_roc_auc_score: 0.6865993815996734
 
 Confusion Matrix
-[[200  80]
- [ 97 209]]
+[[197  84]
+ [100 205]]
 </pre>
 </div>
 </div>
@@ -16948,7 +16830,7 @@ Confusion Matrix
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[151]:</div>
+<div class="prompt input_prompt">In&nbsp;[89]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#ELI5 f selection</span>
@@ -16986,13 +16868,13 @@ Confusion Matrix
 
  
  
-<div id="98343fa3-68a0-438c-a8db-dabec700f9ef"></div>
+<div id="47727b25-d702-41ba-953c-0d37585aed71"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#98343fa3-68a0-438c-a8db-dabec700f9ef');
+var element = $('#47727b25-d702-41ba-953c-0d37585aed71');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "22c84985eb9b43fb994bee3dbf29df8d", "version_major": 2, "version_minor": 0}
+{"model_id": "a72ddbcc49474b8d8935a4f6b14181a5", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -17008,13 +16890,13 @@ var element = $('#98343fa3-68a0-438c-a8db-dabec700f9ef');
 
  
  
-<div id="543819fb-5566-45ac-aea9-aba375159eae"></div>
+<div id="6e294077-4c61-454e-b3d0-1db258aaf549"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#543819fb-5566-45ac-aea9-aba375159eae');
+var element = $('#6e294077-4c61-454e-b3d0-1db258aaf549');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "37bf6cafc8bb4510ae5056796e0a8dbc", "version_major": 2, "version_minor": 0}
+{"model_id": "48c065bc2a8b47dd8708a7942483f1d8", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -17030,13 +16912,13 @@ var element = $('#543819fb-5566-45ac-aea9-aba375159eae');
 
  
  
-<div id="fcea5b7b-e3d3-4ff8-8026-07721d5d5464"></div>
+<div id="0f21af36-d5f6-46d1-8e14-f494116644b1"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#fcea5b7b-e3d3-4ff8-8026-07721d5d5464');
+var element = $('#0f21af36-d5f6-46d1-8e14-f494116644b1');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "dd4610264f6a4fa0a5792f1e2e15dbb6", "version_major": 2, "version_minor": 0}
+{"model_id": "69babab8a3cb43f3bd9b8e0030e7f17c", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -17052,13 +16934,13 @@ var element = $('#fcea5b7b-e3d3-4ff8-8026-07721d5d5464');
 
  
  
-<div id="e82593ad-cafd-4928-9fc6-0b4f4718566c"></div>
+<div id="328c3074-286c-40a5-8c4d-c981e36281e2"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#e82593ad-cafd-4928-9fc6-0b4f4718566c');
+var element = $('#328c3074-286c-40a5-8c4d-c981e36281e2');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "3e8640badb474d5aa94656510cb74dec", "version_major": 2, "version_minor": 0}
+{"model_id": "81a883306ca34406b1339f6963a4f8ba", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -17074,13 +16956,13 @@ var element = $('#e82593ad-cafd-4928-9fc6-0b4f4718566c');
 
  
  
-<div id="c2032d6d-132a-45a3-aacc-44d8d7c1ec12"></div>
+<div id="772e53b8-c0a7-4e3c-81cd-5fa5c5cd0a65"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#c2032d6d-132a-45a3-aacc-44d8d7c1ec12');
+var element = $('#772e53b8-c0a7-4e3c-81cd-5fa5c5cd0a65');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "e36fe5d96ec643239636060ccdaa48f8", "version_major": 2, "version_minor": 0}
+{"model_id": "4cb5651366fc4b2a83874aecec1357f3", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -17096,13 +16978,13 @@ var element = $('#c2032d6d-132a-45a3-aacc-44d8d7c1ec12');
 
  
  
-<div id="fe88b209-3843-47b1-896a-f2b64da9f955"></div>
+<div id="8d662ded-a188-46e8-b2f4-942265e54d53"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#fe88b209-3843-47b1-896a-f2b64da9f955');
+var element = $('#8d662ded-a188-46e8-b2f4-942265e54d53');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "988048fec87b437a80b3a64621331caf", "version_major": 2, "version_minor": 0}
+{"model_id": "cdadda9d8d5a4cb886d66f0dd9066ff1", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -17118,13 +17000,13 @@ var element = $('#fe88b209-3843-47b1-896a-f2b64da9f955');
 
  
  
-<div id="a5565bf0-8a02-4b7b-a1fa-bfe4564a2462"></div>
+<div id="6af0057b-139d-4c34-b67b-80fda6653b48"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#a5565bf0-8a02-4b7b-a1fa-bfe4564a2462');
+var element = $('#6af0057b-139d-4c34-b67b-80fda6653b48');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "3ca01403fecb44e186a5bf4aabd71c5a", "version_major": 2, "version_minor": 0}
+{"model_id": "733b6b2db43849cbb424adc8f3009e5b", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -17140,13 +17022,13 @@ var element = $('#a5565bf0-8a02-4b7b-a1fa-bfe4564a2462');
 
  
  
-<div id="f38726e1-2224-4e58-9197-8848feba6c31"></div>
+<div id="b567aa55-c915-40ce-b98f-6c1e7453fc0e"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#f38726e1-2224-4e58-9197-8848feba6c31');
+var element = $('#b567aa55-c915-40ce-b98f-6c1e7453fc0e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "4ad60c57e999431ea9f1c436a8215d18", "version_major": 2, "version_minor": 0}
+{"model_id": "866850d59da4429aa0250a1bfb33a6b1", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -17162,13 +17044,13 @@ var element = $('#f38726e1-2224-4e58-9197-8848feba6c31');
 
  
  
-<div id="a6a42a6d-6595-48a2-be9d-63f243921795"></div>
+<div id="8363e169-92fb-468b-b1b3-ce893d83e484"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#a6a42a6d-6595-48a2-be9d-63f243921795');
+var element = $('#8363e169-92fb-468b-b1b3-ce893d83e484');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "77acf51436d6469db65ef4dee0e25b0d", "version_major": 2, "version_minor": 0}
+{"model_id": "5fed58fe9d284611b4921dcff2157fe8", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -17184,13 +17066,13 @@ var element = $('#a6a42a6d-6595-48a2-be9d-63f243921795');
 
  
  
-<div id="8e062fbe-8b73-4afa-845c-c231802efe0c"></div>
+<div id="19cd58e8-8177-49a9-becf-4c7d7dd3da6f"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#8e062fbe-8b73-4afa-845c-c231802efe0c');
+var element = $('#19cd58e8-8177-49a9-becf-4c7d7dd3da6f');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "28875879a14a45c9b442e38bc4d083cb", "version_major": 2, "version_minor": 0}
+{"model_id": "75d6135923464491a56685b61193c22b", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -17206,13 +17088,13 @@ var element = $('#8e062fbe-8b73-4afa-845c-c231802efe0c');
 
  
  
-<div id="45c1945e-d8af-4c4a-a153-cf04b13790c9"></div>
+<div id="f955502e-094e-4642-825e-e32b6d69d07c"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#45c1945e-d8af-4c4a-a153-cf04b13790c9');
+var element = $('#f955502e-094e-4642-825e-e32b6d69d07c');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "f07cc31cfe2d4ca2a54b57794f064b83", "version_major": 2, "version_minor": 0}
+{"model_id": "4f0fc90862cf4b8584e604644640b784", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -17224,7 +17106,7 @@ var element = $('#45c1945e-d8af-4c4a-a153-cf04b13790c9');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[152]:</div>
+<div class="prompt input_prompt">In&nbsp;[90]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#ELI5 df</span>
@@ -17241,7 +17123,7 @@ var element = $('#45c1945e-d8af-4c4a-a153-cf04b13790c9');
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[152]:</div>
+<div class="prompt output_prompt">Out[90]:</div>
 
 
 
@@ -17270,54 +17152,54 @@ var element = $('#45c1945e-d8af-4c4a-a153-cf04b13790c9');
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>0.105317</td>
-      <td>EF_merged_PCF_BSF</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>0.041577</td>
-      <td>EF_fc_glucose_1</td>
-    </tr>
-    <tr>
       <th>4</th>
-      <td>0.038053</td>
+      <td>0.075627</td>
       <td>EF_Abundance_BSF</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.020490</td>
+      <td>0.060394</td>
       <td>EF_CellCycle_min</td>
     </tr>
     <tr>
+      <th>0</th>
+      <td>0.048746</td>
+      <td>EF_merged_PCF_BSF</td>
+    </tr>
+    <tr>
       <th>1</th>
-      <td>0.016069</td>
+      <td>0.029450</td>
       <td>EF_CellCycle_min_max</td>
     </tr>
     <tr>
-      <th>12</th>
-      <td>0.014755</td>
-      <td>EF_RNA_BSF_to_PCF_sen_max</td>
+      <th>15</th>
+      <td>0.011470</td>
+      <td>EF_mRNA_BSF_vs_PCF</td>
     </tr>
     <tr>
-      <th>9</th>
-      <td>0.011111</td>
-      <td>EF_ma_BSF_to_PCF_1_min_max</td>
+      <th>11</th>
+      <td>0.011350</td>
+      <td>EF_fc_glucose_1</td>
     </tr>
     <tr>
-      <th>69</th>
-      <td>0.010394</td>
-      <td>hp2: ACCCA</td>
+      <th>14</th>
+      <td>0.010514</td>
+      <td>EF_RNA_BSF_to_PCF_sen_min</td>
     </tr>
     <tr>
-      <th>72</th>
-      <td>0.009797</td>
+      <th>83</th>
+      <td>0.009737</td>
+      <td>ofer_w8: AA: N Frequency</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>0.009618</td>
       <td>hp2: CACCA</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>0.008244</td>
-      <td>EF_Abundance_PCF</td>
+      <th>52</th>
+      <td>0.008005</td>
+      <td>SolventA_3:  Mirror K-mer : AAAHD</td>
     </tr>
   </tbody>
 </table>
@@ -17332,7 +17214,7 @@ var element = $('#45c1945e-d8af-4c4a-a153-cf04b13790c9');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[153]:</div>
+<div class="prompt input_prompt">In&nbsp;[91]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#final round</span>
@@ -17356,7 +17238,7 @@ var element = $('#45c1945e-d8af-4c4a-a153-cf04b13790c9');
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>final round
 DataSet size
-X_train: (1088, 8) X_test: (586, 8) y_train: (1088,) y_test (586,)
+X_train: (1088, 7) X_test: (586, 7) y_train: (1088,) y_test (586,)
 </pre>
 </div>
 </div>
@@ -17371,13 +17253,13 @@ X_train: (1088, 8) X_test: (586, 8) y_train: (1088,) y_test (586,)
 
  
  
-<div id="498ea8fb-0c8a-44bd-bcf3-874a397282e9"></div>
+<div id="0b86e62f-4f0a-4110-91d2-174266cfe27e"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#498ea8fb-0c8a-44bd-bcf3-874a397282e9');
+var element = $('#0b86e62f-4f0a-4110-91d2-174266cfe27e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "017f189bf5b7498ba4c000c3dda4967c", "version_major": 2, "version_minor": 0}
+{"model_id": "cc394b1a015e499fa180efe26bb27e86", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -17391,7 +17273,7 @@ var element = $('#498ea8fb-0c8a-44bd-bcf3-874a397282e9');
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_130_2.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_131_2.png"
 >
 </div>
 
@@ -17405,19 +17287,19 @@ var element = $('#498ea8fb-0c8a-44bd-bcf3-874a397282e9');
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>              precision    recall  f1-score   support
 
-         0.0       0.64      0.72      0.67       264
-         1.0       0.74      0.66      0.70       322
+         0.0       0.67      0.72      0.69       278
+         1.0       0.73      0.68      0.70       308
 
-    accuracy                           0.69       586
-   macro avg       0.69      0.69      0.69       586
-weighted avg       0.69      0.69      0.69       586
+    accuracy                           0.70       586
+   macro avg       0.70      0.70      0.70       586
+weighted avg       0.70      0.70      0.70       586
 
-1 dummy_roc_auc_score: 0.5002566256065697
-1 blind_roc_auc_score: 0.690252682100508
+1 dummy_roc_auc_score: 0.5015673615885705
+1 blind_roc_auc_score: 0.698822759973839
 
 Confusion Matrix
-[[189  75]
- [108 214]]
+[[199  79]
+ [ 98 210]]
 </pre>
 </div>
 </div>
@@ -17437,7 +17319,7 @@ Confusion Matrix
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[154]:</div>
+<div class="prompt input_prompt">In&nbsp;[92]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="p">[</span><span class="n">selected_features</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -17453,7 +17335,7 @@ Confusion Matrix
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[154]:</div>
+<div class="prompt output_prompt">Out[92]:</div>
 
 
 
@@ -17480,67 +17362,61 @@ Confusion Matrix
       <th>EF_CellCycle_min_max</th>
       <th>EF_CellCycle_min</th>
       <th>EF_Abundance_BSF</th>
-      <th>EF_ma_BSF_to_PCF_1_min_max</th>
       <th>EF_fc_glucose_1</th>
-      <th>EF_RNA_BSF_to_PCF_sen_max</th>
-      <th>hp2: ACCCA</th>
+      <th>EF_RNA_BSF_to_PCF_sen_min</th>
+      <th>EF_mRNA_BSF_vs_PCF</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>16</th>
-      <td>-0.041691</td>
+      <td>-1.994036</td>
       <td>0.213725</td>
       <td>-999.0</td>
       <td>8.097232</td>
-      <td>0.195256</td>
       <td>-0.076748</td>
-      <td>1.0</td>
-      <td>2.08</td>
+      <td>3.0</td>
+      <td>3.339756</td>
     </tr>
     <tr>
       <th>123</th>
-      <td>-0.041691</td>
+      <td>-0.028742</td>
       <td>0.263034</td>
       <td>0.5</td>
       <td>7.749779</td>
-      <td>0.079202</td>
       <td>-1.881199</td>
-      <td>2.0</td>
-      <td>0.43</td>
+      <td>4.0</td>
+      <td>2.893186</td>
     </tr>
     <tr>
       <th>627</th>
-      <td>-0.041691</td>
+      <td>-0.028742</td>
       <td>0.137504</td>
       <td>0.5</td>
       <td>7.300305</td>
-      <td>0.097868</td>
       <td>1.251539</td>
-      <td>4.0</td>
-      <td>1.72</td>
+      <td>3.0</td>
+      <td>0.242334</td>
     </tr>
     <tr>
       <th>908</th>
-      <td>-0.041691</td>
+      <td>-0.028742</td>
       <td>0.000000</td>
       <td>0.5</td>
       <td>7.911051</td>
-      <td>0.067769</td>
       <td>-0.258851</td>
-      <td>1.0</td>
-      <td>1.72</td>
+      <td>4.0</td>
+      <td>1.303662</td>
     </tr>
     <tr>
       <th>945</th>
-      <td>-0.041691</td>
+      <td>-0.028742</td>
       <td>0.263034</td>
       <td>3.0</td>
       <td>6.970981</td>
-      <td>0.196191</td>
       <td>-1.000000</td>
-      <td>2.0</td>
-      <td>1.98</td>
+      <td>4.0</td>
+      <td>2.673936</td>
     </tr>
   </tbody>
 </table>
@@ -17555,7 +17431,7 @@ Confusion Matrix
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[155]:</div>
+<div class="prompt input_prompt">In&nbsp;[93]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Now we use the SHAP scoring system to visualise </span>
@@ -17574,7 +17450,7 @@ Confusion Matrix
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[156]:</div>
+<div class="prompt input_prompt">In&nbsp;[94]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
@@ -17610,7 +17486,7 @@ Confusion Matrix
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_134_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_135_0.png"
 >
 </div>
 
@@ -17620,9 +17496,17 @@ Confusion Matrix
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="SHAP-explainer">SHAP explainer<a class="anchor-link" href="#SHAP-explainer">&#182;</a></h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[158]:</div>
+<div class="prompt input_prompt">In&nbsp;[95]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">tryp_df</span><span class="p">[[</span><span class="s1">&#39;Gene ID&#39;</span><span class="p">,</span>
@@ -17644,7 +17528,7 @@ Confusion Matrix
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[158]:</div>
+<div class="prompt output_prompt">Out[95]:</div>
 
 
 
@@ -17833,7 +17717,7 @@ Confusion Matrix
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[159]:</div>
+<div class="prompt input_prompt">In&nbsp;[96]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">initjs</span><span class="p">()</span>
@@ -17893,13 +17777,13 @@ function r(t,e){if(!o.canUseDOM||e&&!("addEventListener"in document))return!1;va
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[159]:</div>
+<div class="prompt output_prompt">Out[96]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id='iN4R8R0IFKVX8DXU3R7LD'>
+<div id='iBWG62JFKTBYRO25FVWO5'>
 <div style='color: #900; text-align: center;'>
   <b>Visualization omitted, Javascript library not loaded!</b><br>
   Have you run `initjs()` in this notebook? If this notebook was from another
@@ -17909,8 +17793,8 @@ function r(t,e){if(!o.canUseDOM||e&&!("addEventListener"in document))return!1;va
 </div></div>
  <script>
    if (window.SHAP) SHAP.ReactDom.render(
-    SHAP.React.createElement(SHAP.AdditiveForceVisualizer, {"outNames": ["output value"], "baseValue": 4.497011101622545, "outValue": 5.182936523447935, "link": "identity", "featureNames": ["EF_merged_PCF_BSF", "EF_CellCycle_min_max", "EF_CellCycle_min", "EF_Abundance_BSF", "EF_ma_BSF_to_PCF_1_min_max", "EF_fc_glucose_1", "EF_RNA_BSF_to_PCF_sen_max", "hp2: ACCCA"], "features": {"0": {"effect": 0.4253067178282642, "value": -0.6327551603317261}, "1": {"effect": 0.14239216753510256, "value": 0.0}, "2": {"effect": 0.5107218626796699, "value": 0.5}, "3": {"effect": -0.616700947697953, "value": 9.36877727508545}, "4": {"effect": 0.31998354188103156, "value": 0.13415230810642242}, "5": {"effect": -0.10262507579114223, "value": 0.0718240737915039}, "6": {"effect": 0.10327814760452754, "value": 3.0}, "7": {"effect": -0.09643099221411017, "value": 1.5700000524520874}}, "plot_cmap": "RdBu", "labelMargin": 20}),
-    document.getElementById('iN4R8R0IFKVX8DXU3R7LD')
+    SHAP.React.createElement(SHAP.AdditiveForceVisualizer, {"outNames": ["output value"], "baseValue": 3.507258753202391, "outValue": 4.328782125733346, "link": "identity", "featureNames": ["EF_merged_PCF_BSF", "EF_CellCycle_min_max", "EF_CellCycle_min", "EF_Abundance_BSF", "EF_fc_glucose_1", "EF_RNA_BSF_to_PCF_sen_min", "EF_mRNA_BSF_vs_PCF"], "features": {"0": {"effect": -0.3391123253630254, "value": -0.3492621183395386}, "1": {"effect": 0.4245166782039772, "value": 0.0}, "2": {"effect": 0.6351800717775106, "value": 0.5}, "3": {"effect": -0.3634709289433018, "value": 9.36877727508545}, "4": {"effect": -0.00581462005258118, "value": 0.0718240737915039}, "5": {"effect": 0.1587914025699155, "value": 1.0}, "6": {"effect": 0.31143309433845984, "value": 0.8000199794769287}}, "plot_cmap": "RdBu", "labelMargin": 20}),
+    document.getElementById('iBWG62JFKTBYRO25FVWO5')
   );
 </script>
 </div>
@@ -17921,45 +17805,20 @@ function r(t,e){if(!o.canUseDOM||e&&!("addEventListener"in document))return!1;va
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[160]:</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">lime</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">lime</span><span class="p">)</span>
-</pre></div>
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="LIME-explainer">LIME explainer<a class="anchor-link" href="#LIME-explainer">&#182;</a></h3>
 </div>
 </div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;module &#39;lime&#39; from &#39;d:\\my_env\\prediction\\lib\\site-packages\\lime\\__init__.py&#39;&gt;
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[161]:</div>
+<div class="prompt input_prompt">In&nbsp;[97]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">lime.lime_tabular</span> <span class="k">import</span> <span class="n">LimeTabularExplainer</span>
-<span class="n">explainer</span> <span class="o">=</span> <span class="n">LimeTabularExplainer</span><span class="p">(</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">explainer</span> <span class="o">=</span> <span class="n">LimeTabularExplainer</span><span class="p">(</span>
     <span class="n">training_data</span> <span class="o">=</span><span class="n">X</span><span class="p">[</span><span class="n">selected_features</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
     <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;classification&#39;</span><span class="p">,</span>
     <span class="n">feature_names</span><span class="o">=</span><span class="n">selected_features</span><span class="p">,</span>
@@ -17995,7 +17854,7 @@ function r(t,e){if(!o.canUseDOM||e&&!("addEventListener"in document))return!1;va
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_138_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_140_0.png"
 >
 </div>
 
@@ -18015,7 +17874,7 @@ function r(t,e){if(!o.canUseDOM||e&&!("addEventListener"in document))return!1;va
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[164]:</div>
+<div class="prompt input_prompt">In&nbsp;[98]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pdpbox</span> <span class="k">import</span> <span class="n">pdp</span><span class="p">,</span> <span class="n">get_dataset</span><span class="p">,</span> <span class="n">info_plots</span>
@@ -18058,7 +17917,7 @@ function r(t,e){if(!o.canUseDOM||e&&!("addEventListener"in document))return!1;va
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_140_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_142_0.png"
 >
 </div>
 
@@ -18078,7 +17937,7 @@ function r(t,e){if(!o.canUseDOM||e&&!("addEventListener"in document))return!1;va
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[166]:</div>
+<div class="prompt input_prompt">In&nbsp;[99]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">summary_df</span> <span class="o">=</span> <span class="n">info_plots</span><span class="o">.</span><span class="n">actual_plot_interact</span><span class="p">(</span>
@@ -18105,7 +17964,7 @@ function r(t,e){if(!o.canUseDOM||e&&!("addEventListener"in document))return!1;va
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_142_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_144_0.png"
 >
 </div>
 
@@ -18117,7 +17976,7 @@ function r(t,e){if(!o.canUseDOM||e&&!("addEventListener"in document))return!1;va
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[167]:</div>
+<div class="prompt input_prompt">In&nbsp;[100]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">summary_df</span> <span class="o">=</span> <span class="n">info_plots</span><span class="o">.</span><span class="n">actual_plot_interact</span><span class="p">(</span>
@@ -18144,7 +18003,7 @@ function r(t,e){if(!o.canUseDOM||e&&!("addEventListener"in document))return!1;va
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_143_0.png"
+<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_145_0.png"
 >
 </div>
 
@@ -18165,7 +18024,7 @@ function r(t,e){if(!o.canUseDOM||e&&!("addEventListener"in document))return!1;va
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[168]:</div>
+<div class="prompt input_prompt">In&nbsp;[101]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">render_tree</span><span class="p">(</span><span class="n">tree_index</span><span class="p">,</span> <span class="n">show_info</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
@@ -18181,7 +18040,7 @@ function r(t,e){if(!o.canUseDOM||e&&!("addEventListener"in document))return!1;va
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[169]:</div>
+<div class="prompt input_prompt">In&nbsp;[102]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -18228,13 +18087,13 @@ function r(t,e){if(!o.canUseDOM||e&&!("addEventListener"in document))return!1;va
 
  
  
-<div id="ec248dd5-3107-4d80-b84f-8ccbbac32b06"></div>
+<div id="d21561a9-8e39-4be7-af39-f57c950d42ee"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#ec248dd5-3107-4d80-b84f-8ccbbac32b06');
+var element = $('#d21561a9-8e39-4be7-af39-f57c950d42ee');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "5811fb8763cb4377ac9956a5133fad0a", "version_major": 2, "version_minor": 0}
+{"model_id": "aed9f41511a14c69a749289170922ca8", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
