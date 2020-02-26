@@ -11795,7 +11795,7 @@ $( document ).ready(function(){
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[101]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#some style formatting</span>
@@ -11817,7 +11817,7 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[1]:</div>
+<div class="prompt output_prompt">Out[101]:</div>
 
 
 
@@ -11854,27 +11854,12 @@ It remains challenging to analyse and extract information from OMIC experiments.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[102]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#set up code</span>
 <span class="o">%</span><span class="k">load_ext</span> autoreload
 <span class="o">%</span><span class="k">autoreload</span> 2
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">mylib</span> <span class="k">import</span> <span class="n">scripts</span>
-<span class="o">%</span><span class="k">run</span> mylib/scripts.py
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span><span class="mi">1976</span>
 </pre></div>
 
 </div>
@@ -11890,12 +11875,28 @@ It remains challenging to analyse and extract information from OMIC experiments.
 <div class="prompt"></div>
 
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Using TensorFlow backend.
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The autoreload extension is already loaded. To reload it, use:
+  %reload_ext autoreload
 </pre>
 </div>
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[103]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">mylib</span> <span class="k">import</span> <span class="n">scripts</span>
+<span class="o">%</span><span class="k">run</span> mylib/scripts.py
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span><span class="mi">1976</span>
+</pre></div>
+
+</div>
 </div>
 </div>
 
@@ -11930,7 +11931,7 @@ The data within TriTrypDB can be interrogated with search strategies allowing th
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[104]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -11974,7 +11975,7 @@ The data within TriTrypDB can be interrogated with search strategies allowing th
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[105]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#this is our ML dataset, ready to accept new features</span>
@@ -11988,7 +11989,7 @@ The data within TriTrypDB can be interrogated with search strategies allowing th
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[106]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#There is a bug in the tritrypDB script that create the outputs</span>
@@ -12008,7 +12009,7 @@ The data within TriTrypDB can be interrogated with search strategies allowing th
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[6]:</div>
+<div class="prompt output_prompt">Out[106]:</div>
 
 
 
@@ -12035,7 +12036,7 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[107]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#columns with the data</span>
@@ -12101,7 +12102,7 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[108]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#random sample 500 proteins and make a scatter plot matrix</span>
@@ -12147,7 +12148,7 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[109]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ss</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
@@ -12173,7 +12174,7 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[110]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">im</span><span class="p">,</span> <span class="n">cbar</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">scripts</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">temp_df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
@@ -12233,7 +12234,7 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[111]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#visualization of missing data</span>
@@ -12283,7 +12284,7 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[112]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#adding our merged feature</span>
@@ -12317,13 +12318,13 @@ We now aim to visualize the similarities between these datasets.</p>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[12]:</div>
+<div class="prompt output_prompt">Out[112]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>94007</pre>
+<pre>93493</pre>
 </div>
 
 </div>
@@ -12342,7 +12343,7 @@ We now aim to visualize the similarities between these datasets.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[113]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#create the sup table</span>
@@ -12389,7 +12390,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[13]:</div>
+<div class="prompt output_prompt">Out[113]:</div>
 
 
 
@@ -12458,7 +12459,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[114]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">tryp_df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
@@ -12500,7 +12501,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[115]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
@@ -12565,7 +12566,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[116]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;EF_CellCycle_min_max&#39;</span>
@@ -12617,7 +12618,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[16]:</div>
+<div class="prompt output_prompt">Out[116]:</div>
 
 
 
@@ -12710,7 +12711,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[117]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bsf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span><span class="s1">&#39;turnover&#39;</span><span class="p">,</span><span class="s1">&#39;BSF&#39;</span><span class="p">,</span><span class="s1">&#39;proteinGroups.zip&#39;</span><span class="p">))</span>
@@ -12765,7 +12766,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[118]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;EF_MS_Abundance_BSF&#39;</span>
@@ -12810,7 +12811,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[18]:</div>
+<div class="prompt output_prompt">Out[118]:</div>
 
 
 
@@ -12894,7 +12895,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[119]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -12948,7 +12949,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[120]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#regression to compute the predicted MW </span>
@@ -12992,7 +12993,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[20]:</div>
+<div class="prompt output_prompt">Out[120]:</div>
 
 
 
@@ -13197,7 +13198,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[121]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#extract firsth feature</span>
@@ -13223,7 +13224,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[122]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;EF_MW_fc&#39;</span>
@@ -13262,7 +13263,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[22]:</div>
+<div class="prompt output_prompt">Out[122]:</div>
 
 
 
@@ -13355,7 +13356,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[123]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">ml_df</span><span class="p">[</span><span class="s1">&#39;EF_MW_fc&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
@@ -13394,7 +13395,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[124]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#missing data replaced with 0</span>
@@ -13417,7 +13418,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[125]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#extract second feature</span>
@@ -13442,7 +13443,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[126]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;EF_in_complex&#39;</span>
@@ -13478,7 +13479,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[26]:</div>
+<div class="prompt output_prompt">Out[126]:</div>
 
 
 
@@ -13574,7 +13575,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/26910529  ">26910529 </a> and 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[127]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#i&#39;m going to code the LS stage as -1 hour and PF stage as +100 hour</span>
@@ -13598,7 +13599,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/26910529  ">26910529 </a> and 
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[27]:</div>
+<div class="prompt output_prompt">Out[127]:</div>
 
 
 
@@ -13614,7 +13615,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/26910529  ">26910529 </a> and 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[128]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp_df</span> <span class="o">=</span> <span class="n">tryp_df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
@@ -13639,7 +13640,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/26910529  ">26910529 </a> and 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[129]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -13703,7 +13704,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/26910529  ">26910529 </a> and 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[130]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_pmids</span> <span class="o">=</span> <span class="s1">&#39;26910529&#39;</span>
@@ -13751,7 +13752,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[30]:</div>
+<div class="prompt output_prompt">Out[130]:</div>
 
 
 
@@ -13865,7 +13866,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19840382 ">19840382</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[131]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tryp_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;Blood Form (Tb LifeCyc Marray)&#39;</span><span class="p">:</span>
@@ -13899,7 +13900,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19840382 ">19840382</a> and
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[31]:</div>
+<div class="prompt output_prompt">Out[131]:</div>
 
 
 
@@ -13915,7 +13916,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19840382 ">19840382</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[132]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="p">[</span><span class="s1">&#39;EF_ma_BSF_to_PCF_1_min_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span>
@@ -13938,7 +13939,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19840382 ">19840382</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[133]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -14002,7 +14003,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19840382 ">19840382</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[134]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;EF_ma_BSF_to_PCF_1_min_max&#39;</span>
@@ -14048,7 +14049,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[34]:</div>
+<div class="prompt output_prompt">Out[134]:</div>
 
 
 
@@ -14144,7 +14145,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19857263">19857263</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[135]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tryp_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;bf-ld (Tb cBSFtoPCF Marray)&#39;</span><span class="p">:</span>
@@ -14183,7 +14184,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19857263">19857263</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[136]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="p">[</span><span class="s1">&#39;EF_ma_BSF_to_PCF_2_min_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span>
@@ -14208,7 +14209,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19857263">19857263</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[137]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -14272,7 +14273,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/19857263">19857263</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[138]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;EF_ma_BSF_to_PCF_2_min_max&#39;</span>
@@ -14317,7 +14318,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[38]:</div>
+<div class="prompt output_prompt">Out[138]:</div>
 
 
 
@@ -14401,7 +14402,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[139]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ml_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -14452,7 +14453,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[140]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#set the Slender as the erliest time point</span>
@@ -14473,7 +14474,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[40]:</div>
+<div class="prompt output_prompt">Out[140]:</div>
 
 
 
@@ -14489,7 +14490,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[141]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="p">[</span><span class="s1">&#39;EF_ma_BSF_to_PCF_3_min_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span>
@@ -14512,7 +14513,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[142]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -14576,7 +14577,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[143]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;EF_ma_BSF_to_PCF_3_min_max&#39;</span>
@@ -14622,7 +14623,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[43]:</div>
+<div class="prompt output_prompt">Out[143]:</div>
 
 
 
@@ -14727,7 +14728,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/27237364 ">27237364</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[144]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#average blood and fat replicates</span>
@@ -14766,7 +14767,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/27237364 ">27237364</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[145]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -14814,7 +14815,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/27237364 ">27237364</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[146]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;EF_RNASeq_adipose_blood&#39;</span>
@@ -14851,7 +14852,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[46]:</div>
+<div class="prompt output_prompt">Out[146]:</div>
 
 
 
@@ -14935,7 +14936,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[147]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ml_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -14979,7 +14980,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/30381351">30381351</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[148]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp_1</span> <span class="o">=</span> <span class="n">tryp_df</span><span class="p">[</span><span class="s1">&#39;sense - LS + gluc - unique only&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
@@ -15003,7 +15004,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/30381351">30381351</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[149]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -15058,7 +15059,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/30381351">30381351</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[150]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;EF_fc_glucose_1&#39;</span>
@@ -15103,7 +15104,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[50]:</div>
+<div class="prompt output_prompt">Out[150]:</div>
 
 
 
@@ -15199,7 +15200,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21483801 ">21483801</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[151]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">tryp_df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s1">&#39;Tb CellCyc RSeq&#39;</span> <span class="ow">in</span> <span class="n">n</span><span class="p">]</span>
@@ -15227,7 +15228,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21483801 ">21483801</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[152]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -15290,7 +15291,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21483801 ">21483801</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[153]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;EF_RNA_CellCycle_min_max&#39;</span>
@@ -15338,7 +15339,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[53]:</div>
+<div class="prompt output_prompt">Out[153]:</div>
 
 
 
@@ -15422,7 +15423,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[154]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ml_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -15465,7 +15466,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[155]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tryp_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;antisense - Long Slender - unique only&#39;</span><span class="p">:</span>
@@ -15533,7 +15534,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[156]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -15596,7 +15597,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[157]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;EF_RNA_BSF_to_PCF_anti_min_max&#39;</span>
@@ -15645,7 +15646,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[57]:</div>
+<div class="prompt output_prompt">Out[157]:</div>
 
 
 
@@ -15729,7 +15730,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[158]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tryp_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;sense - Long Slender - unique only&#39;</span><span class="p">:</span>
@@ -15777,7 +15778,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[159]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -15840,7 +15841,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[160]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;EF_RNA_BSF_to_PCF_sen_min_max&#39;</span>
@@ -15888,7 +15889,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[60]:</div>
+<div class="prompt output_prompt">Out[160]:</div>
 
 
 
@@ -15984,7 +15985,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/24442674 ">24442674</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[161]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#abundace</span>
@@ -16009,7 +16010,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/24442674 ">24442674</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[162]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#abundace</span>
@@ -16043,7 +16044,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/24442674 ">24442674</a> and
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[62]:</div>
+<div class="prompt output_prompt">Out[162]:</div>
 
 
 
@@ -16068,7 +16069,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/24442674 ">24442674</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[163]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;EF_Abundance_s_PCF_mRNA&#39;</span>
@@ -16120,7 +16121,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[63]:</div>
+<div class="prompt output_prompt">Out[163]:</div>
 
 
 
@@ -16204,7 +16205,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[164]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#differential abundace</span>
@@ -16237,7 +16238,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[64]:</div>
+<div class="prompt output_prompt">Out[164]:</div>
 
 
 
@@ -16262,7 +16263,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[165]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;mRNA_BSF_vs_PCF&#39;</span>
@@ -16299,7 +16300,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[65]:</div>
+<div class="prompt output_prompt">Out[165]:</div>
 
 
 
@@ -16383,7 +16384,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[166]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -16437,7 +16438,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="prompt input_prompt">In&nbsp;[167]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -16488,198 +16489,9 @@ True
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="RNA-Seq-phenotyping">RNA-Seq phenotyping<a class="anchor-link" href="#RNA-Seq-phenotyping">&#182;</a></h4><p>Alsford S, 2011<p>
-High-throughput phenotyping using parallel sequencing of RNA interference targets in the African trypanosome
-PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21363968">21363968</a> and
-<a href="https://tritrypdb.org/tritrypdb/app/record/dataset/dataset/DS_3f5188c7a8">TryTripDB</a></p>
-<p>We further created a gene lethality descriptor by using the RNA interference (RNAi) high-throughput phenotyping experiment of Alsford S. et al. [25]. From this study, we extracted the log2 fold change of the parasite RNA-seq read counts before and after three days of RNAi induction.</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[68]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;BFd3/Tet- (CDS only)&#39;</span>
-<span class="n">ml_df</span><span class="p">[</span><span class="s1">&#39;EF_&#39;</span><span class="o">+</span><span class="n">col</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">tryp_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">))</span>
-<span class="c1">#The experiment with tags BFd6/Tet-,  PF/Tet-, difn/Tet- </span>
-<span class="c1">#[&#39;BFd3/Tet- (CDS only)&#39;,&#39;BFd6/Tet- (CDS only)&#39;,&#39;PF/Tet- (CDS only)&#39;,&#39;difn/Tet- (CDS only)&#39;]</span>
-<span class="c1">#contain a mixture of numbers and numbers followed by an asterisks. </span>
-<span class="c1">#Don&#39;t know why but can&#39;t included for now.</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[69]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="kn">from</span> <span class="nn">matplotlib.lines</span> <span class="k">import</span> <span class="n">Line2D</span>
-<span class="n">ml_df</span><span class="p">[</span><span class="s1">&#39;EF_&#39;</span><span class="o">+</span><span class="n">col</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">,</span><span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> 
-                                        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">col</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;log2 Fold Change&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Counts&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
-<span class="n">new_handles</span> <span class="o">=</span> <span class="p">[</span><span class="n">Line2D</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">c</span><span class="o">=</span><span class="n">h</span><span class="o">.</span><span class="n">get_edgecolor</span><span class="p">())</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">handles</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">new_handles</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;RNA Differential Expression&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="c1">#plt.savefig(os.path.join(&#39;figures&#39;,&#39;example_1&#39;,&#39;Fig_17.png&#39;))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.0_files/TriTrypDB_ML_1.0_111_0.png"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;EF_BFd3&#39;</span>
-<span class="n">feat_dataset</span> <span class="o">=</span> <span class="s1">&#39;Alsford S, 2011&#39;</span>
-<span class="n">feat_pmids</span> <span class="o">=</span> <span class="s1">&#39;21363968&#39;</span>
-<span class="n">feat_desc</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Log2 fold change in mRNA abundance between 0 and 3 day of phenotyping RNAi library induction&#39;&#39;&#39;</span>
-<span class="n">exp_feat</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">40</span><span class="p">,:]</span><span class="o">=</span><span class="p">[</span><span class="n">feat_name</span><span class="p">,</span><span class="n">feat_dataset</span><span class="p">,</span><span class="n">feat_pmids</span><span class="p">,</span><span class="n">feat_type</span><span class="p">,</span><span class="n">feat_desc</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">exp_feat</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">exp_feat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">ml_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">exp_feat</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(41, 5)
-True
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[70]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Feature Name</th>
-      <th>dataset</th>
-      <th>PMID</th>
-      <th>OMICs</th>
-      <th>description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>36</th>
-      <td>EF_Abundance_s_BSF_mRNA</td>
-      <td>Vasquez JJ, 2014</td>
-      <td>24442674</td>
-      <td>Trascriptomics / RNA-seq</td>
-      <td>Log10 FRPKM of mRNA in BSF, sence strand</td>
-    </tr>
-    <tr>
-      <th>37</th>
-      <td>EF_Abundance_s_BSF_Ribo</td>
-      <td>Vasquez JJ, 2014</td>
-      <td>24442674</td>
-      <td>Trascriptomics / RNA-seq</td>
-      <td>Log10 FRPKM of Ribosome Profiling in BSF, senc...</td>
-    </tr>
-    <tr>
-      <th>38</th>
-      <td>mRNA_BSF_vs_PCF</td>
-      <td>Vasquez JJ, 2014</td>
-      <td>24442674</td>
-      <td>Trascriptomics / RNA-seq</td>
-      <td>Log2 fold change of mRNA (FRPKM) between BSF a...</td>
-    </tr>
-    <tr>
-      <th>39</th>
-      <td>mRNA_BSF_vs_PCF</td>
-      <td>Vasquez JJ, 2014</td>
-      <td>24442674</td>
-      <td>Trascriptomics / RNA-seq</td>
-      <td>Log2 fold change ribosome profiling abundance ...</td>
-    </tr>
-    <tr>
-      <th>40</th>
-      <td>EF_BFd3</td>
-      <td>Alsford S, 2011</td>
-      <td>21363968</td>
-      <td>Trascriptomics / RNA-seq</td>
-      <td>Log2 fold change in mRNA abundance between 0 a...</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -16702,7 +16514,7 @@ All the features described above were derived from experimental evidence, for th
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="prompt input_prompt">In&nbsp;[168]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cols</span> <span class="o">=</span><span class="p">[</span>
@@ -16743,13 +16555,13 @@ All the features described above were derived from experimental evidence, for th
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[71]:</div>
+<div class="prompt output_prompt">Out[168]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(11832, 46)</pre>
+<pre>(11832, 45)</pre>
 </div>
 
 </div>
@@ -16768,7 +16580,7 @@ All the features described above were derived from experimental evidence, for th
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="prompt input_prompt">In&nbsp;[169]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;EF_DHH1_mutant&#39;</span>
@@ -16816,7 +16628,7 @@ All the features described above were derived from experimental evidence, for th
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(45, 5)
+<pre>(44, 5)
 True
 </pre>
 </div>
@@ -16824,7 +16636,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[72]:</div>
+<div class="prompt output_prompt">Out[169]:</div>
 
 
 
@@ -16856,12 +16668,12 @@ True
   </thead>
   <tbody>
     <tr>
-      <th>40</th>
-      <td>EF_BFd3</td>
-      <td>Alsford S, 2011</td>
-      <td>21363968</td>
+      <th>39</th>
+      <td>mRNA_BSF_vs_PCF</td>
+      <td>Vasquez JJ, 2014</td>
+      <td>24442674</td>
       <td>Trascriptomics / RNA-seq</td>
-      <td>Log2 fold change in mRNA abundance between 0 a...</td>
+      <td>Log2 fold change ribosome profiling abundance ...</td>
     </tr>
     <tr>
       <th>41</th>
@@ -16926,7 +16738,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="prompt input_prompt">In&nbsp;[170]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="p">[[</span><span class="s1">&#39;SF_Ortholog_count&#39;</span><span class="p">,</span>
@@ -16949,7 +16761,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="prompt input_prompt">In&nbsp;[171]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;SF_Ortholog_count&#39;</span>
@@ -16983,7 +16795,7 @@ True
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(47, 5)
+<pre>(46, 5)
 True
 </pre>
 </div>
@@ -16991,7 +16803,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[74]:</div>
+<div class="prompt output_prompt">Out[171]:</div>
 
 
 
@@ -17084,7 +16896,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="prompt input_prompt">In&nbsp;[172]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#processing of the signal peptide data</span>
@@ -17132,7 +16944,7 @@ ave            0.577119     0.747799  0.898947  1.000000
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[75]:</div>
+<div class="prompt output_prompt">Out[172]:</div>
 
 
 
@@ -17231,7 +17043,7 @@ ave            0.577119     0.747799  0.898947  1.000000
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[76]:</div>
+<div class="prompt input_prompt">In&nbsp;[173]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="p">[</span><span class="s1">&#39;SF_Sig_Pep&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">temp</span><span class="p">[</span><span class="s1">&#39;ave&#39;</span><span class="p">]</span>
@@ -17252,7 +17064,7 @@ ave            0.577119     0.747799  0.898947  1.000000
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="prompt input_prompt">In&nbsp;[174]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;SF_Sig_Pep&#39;</span>
@@ -17281,7 +17093,7 @@ ave            0.577119     0.747799  0.898947  1.000000
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(48, 5)
+<pre>(47, 5)
 True
 </pre>
 </div>
@@ -17289,7 +17101,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[77]:</div>
+<div class="prompt output_prompt">Out[174]:</div>
 
 
 
@@ -17382,7 +17194,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[78]:</div>
+<div class="prompt input_prompt">In&nbsp;[175]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#read the gff file and process    </span>
@@ -17440,7 +17252,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[78]:</div>
+<div class="prompt output_prompt">Out[175]:</div>
 
 
 
@@ -17668,7 +17480,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[79]:</div>
+<div class="prompt input_prompt">In&nbsp;[176]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#add the new features</span>
@@ -17692,8 +17504,8 @@ True
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(11832, 49)
-(11832, 50)
+<pre>(11832, 48)
+(11832, 49)
 </pre>
 </div>
 </div>
@@ -17704,7 +17516,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[80]:</div>
+<div class="prompt input_prompt">In&nbsp;[177]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;polycistron_norm_pos&#39;</span><span class="p">:</span><span class="s1">&#39;SF_Polycistron_Start&#39;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -17725,7 +17537,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[81]:</div>
+<div class="prompt input_prompt">In&nbsp;[178]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;SF_Polycistron_Start&#39;</span>
@@ -17754,7 +17566,7 @@ True
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(49, 5)
+<pre>(48, 5)
 True
 </pre>
 </div>
@@ -17762,7 +17574,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[81]:</div>
+<div class="prompt output_prompt">Out[178]:</div>
 
 
 
@@ -17854,7 +17666,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[82]:</div>
+<div class="prompt input_prompt">In&nbsp;[179]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Anoter normalization for the trans-membrane domain</span>
@@ -17877,7 +17689,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[83]:</div>
+<div class="prompt input_prompt">In&nbsp;[180]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;SF_TMD&#39;</span>
@@ -17912,7 +17724,7 @@ True
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(51, 5)
+<pre>(50, 5)
 True
 </pre>
 </div>
@@ -17920,7 +17732,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[83]:</div>
+<div class="prompt output_prompt">Out[180]:</div>
 
 
 
@@ -18012,7 +17824,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[84]:</div>
+<div class="prompt input_prompt">In&nbsp;[181]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Normalization of the SNPs data</span>
@@ -18036,7 +17848,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[85]:</div>
+<div class="prompt input_prompt">In&nbsp;[182]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rename</span> <span class="o">=</span> <span class="p">{</span>
@@ -18065,7 +17877,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[86]:</div>
+<div class="prompt input_prompt">In&nbsp;[183]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;SF_SNPs1&#39;</span>
@@ -18114,7 +17926,7 @@ True
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(57, 5)
+<pre>(56, 5)
 True
 </pre>
 </div>
@@ -18122,7 +17934,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[86]:</div>
+<div class="prompt output_prompt">Out[183]:</div>
 
 
 
@@ -18214,7 +18026,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[87]:</div>
+<div class="prompt input_prompt">In&nbsp;[184]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#adding binary value, protein coding or not</span>
@@ -18245,7 +18057,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[87]:</div>
+<div class="prompt output_prompt">Out[184]:</div>
 
 
 
@@ -18272,7 +18084,7 @@ Name: SF_Prot_Coding, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[88]:</div>
+<div class="prompt input_prompt">In&nbsp;[185]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_name</span> <span class="o">=</span> <span class="s1">&#39;SF_Prot_Coding&#39;</span>
@@ -18298,7 +18110,7 @@ Name: SF_Prot_Coding, dtype: int64</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(58, 5)
+<pre>(57, 5)
 True
 </pre>
 </div>
@@ -18306,7 +18118,7 @@ True
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[88]:</div>
+<div class="prompt output_prompt">Out[185]:</div>
 
 
 
@@ -18398,7 +18210,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[89]:</div>
+<div class="prompt input_prompt">In&nbsp;[186]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">exp_feat</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">,</span><span class="s1">&#39;FeatureTable.csv&#39;</span><span class="p">))</span>
@@ -18420,7 +18232,7 @@ True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[90]:</div>
+<div class="prompt input_prompt">In&nbsp;[187]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
@@ -18530,8 +18342,8 @@ Tb927.1.1010       39       94       88       10
 Tb927.1.1020       11       57       54        9  
 
 [5 rows x 285 columns]
-(11832, 59)
-(11832, 344)
+(11832, 58)
+(11832, 343)
 </pre>
 </div>
 </div>
@@ -18552,7 +18364,7 @@ We further complemented our ML dataset by using the ProFET package to extracts h
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[91]:</div>
+<div class="prompt input_prompt">In&nbsp;[188]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fasta_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span>
@@ -18587,7 +18399,7 @@ We further complemented our ML dataset by using the ProFET package to extracts h
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[92]:</div>
+<div class="prompt input_prompt">In&nbsp;[189]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#create a list of sequence,id to compute in parallel </span>
@@ -18617,13 +18429,13 @@ We further complemented our ML dataset by using the ProFET package to extracts h
 
  
  
-<div id="d22dac88-a985-44ef-a76b-40d7c93c3cc0"></div>
+<div id="bcbded74-d255-4c73-92a6-e79f1dcd3476"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#d22dac88-a985-44ef-a76b-40d7c93c3cc0');
+var element = $('#bcbded74-d255-4c73-92a6-e79f1dcd3476');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "9947a3998f954a9a82f91987daf67edc", "version_major": 2, "version_minor": 0}
+{"model_id": "0c8de25f03894ce69ca60268b5c93b91", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -18654,7 +18466,7 @@ var element = $('#d22dac88-a985-44ef-a76b-40d7c93c3cc0');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[93]:</div>
+<div class="prompt input_prompt">In&nbsp;[190]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#the code run only if the profet output file is </span>
@@ -18716,7 +18528,7 @@ var element = $('#d22dac88-a985-44ef-a76b-40d7c93c3cc0');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[94]:</div>
+<div class="prompt input_prompt">In&nbsp;[191]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span><span class="s1">&#39;profet.csv.gz&#39;</span><span class="p">)):</span>
@@ -18735,7 +18547,7 @@ var element = $('#d22dac88-a985-44ef-a76b-40d7c93c3cc0');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[95]:</div>
+<div class="prompt input_prompt">In&nbsp;[192]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">prepare_profet</span><span class="p">(</span><span class="n">infile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span><span class="s1">&#39;profet.csv.gz&#39;</span><span class="p">)):</span>
@@ -18776,8 +18588,8 @@ var element = $('#d22dac88-a985-44ef-a76b-40d7c93c3cc0');
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(11832, 344)
-(11832, 1404)
+<pre>(11832, 343)
+(11832, 1403)
 </pre>
 </div>
 </div>
@@ -18796,7 +18608,7 @@ var element = $('#d22dac88-a985-44ef-a76b-40d7c93c3cc0');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[96]:</div>
+<div class="prompt input_prompt">In&nbsp;[193]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -18818,7 +18630,7 @@ var element = $('#d22dac88-a985-44ef-a76b-40d7c93c3cc0');
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Memory usage of dataframe is 126.74 MB
+<pre>Memory usage of dataframe is 126.65 MB
 </pre>
 </div>
 </div>
@@ -18833,13 +18645,13 @@ var element = $('#d22dac88-a985-44ef-a76b-40d7c93c3cc0');
 
  
  
-<div id="61f54749-7719-48e3-8eee-0fbe875a7a71"></div>
+<div id="a11e0d50-6117-4f9f-ab64-909e0e9a03dc"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#61f54749-7719-48e3-8eee-0fbe875a7a71');
+var element = $('#a11e0d50-6117-4f9f-ab64-909e0e9a03dc');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "d6c594e9b1ae40d0892a2c8cae6f2ca6", "version_major": 2, "version_minor": 0}
+{"model_id": "4c18bda911064f56a7fc23829fe8f620", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -18852,7 +18664,7 @@ var element = $('#61f54749-7719-48e3-8eee-0fbe875a7a71');
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-Memory usage after optimization is: 63.76 MB
+Memory usage after optimization is: 63.72 MB
 Decreased by 49.7%
 </pre>
 </div>
@@ -18864,7 +18676,7 @@ Decreased by 49.7%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[97]:</div>
+<div class="prompt input_prompt">In&nbsp;[194]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="o">=</span><span class="n">ml_df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s1">&#39;Gene ID&#39;</span><span class="p">)</span>
@@ -18880,7 +18692,7 @@ Decreased by 49.7%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[98]:</div>
+<div class="prompt input_prompt">In&nbsp;[196]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -18896,7 +18708,7 @@ Decreased by 49.7%
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[98]:</div>
+<div class="prompt output_prompt">Out[196]:</div>
 
 
 
@@ -19065,7 +18877,7 @@ Decreased by 49.7%
     </tr>
   </tbody>
 </table>
-<p>5 rows × 1404 columns</p>
+<p>5 rows × 1403 columns</p>
 </div>
 </div>
 
@@ -19077,7 +18889,7 @@ Decreased by 49.7%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[99]:</div>
+<div class="prompt input_prompt">In&nbsp;[197]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert --to html_toc TriTrypDB_ML_1.0.ipynb
@@ -19117,8 +18929,7 @@ Decreased by 49.7%
 [NbConvertApp] Making directory TriTrypDB_ML_1.0_files
 [NbConvertApp] Making directory TriTrypDB_ML_1.0_files
 [NbConvertApp] Making directory TriTrypDB_ML_1.0_files
-[NbConvertApp] Making directory TriTrypDB_ML_1.0_files
-[NbConvertApp] Writing 704962 bytes to TriTrypDB_ML_1.0.html
+[NbConvertApp] Writing 696069 bytes to TriTrypDB_ML_1.0.html
 </pre>
 </div>
 </div>
