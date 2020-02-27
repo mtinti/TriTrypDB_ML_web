@@ -12025,7 +12025,7 @@ A clever experiment in 2011 used high-throughput phenotyping approach (RIT-seq) 
 High-throughput phenotyping using parallel sequencing of RNA interference targets in the African trypanosome
 PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21363968">21363968</a> and
 <a href="https://tritrypdb.org/tritrypdb/app/record/dataset/dataset/DS_3f5188c7a8">TryTripDB</a></p>
-<p>The dataset deposited in TriTrypDB contain a mixture of numbers and numbers followed by an asterisks.we Don't know why but can't use it for now.</p>
+<p>The dataset deposited in TriTrypDB contain a mixture of numbers and numbers followed by an asterisks.we Don't know why but can't use it for now. We made the TriTrypDB team aware. For this analysis we extract the data from the Sup file 1 of the paper.</p>
 
 </div>
 </div>
@@ -12091,12 +12091,13 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21363968">21363968</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#we use TryTripDB to map the genes reported in Sup File 1 of Alsford S et, 2011</span>
 <span class="n">mapping</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span><span class="s1">&#39;essential&#39;</span><span class="p">,</span><span class="s1">&#39;mapping.txt&#39;</span><span class="p">),</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="c1">#we extract the z-score computed with the DEGseq package in Alsford S et, 2011</span>
+<span class="c1">#for the library induced for 3 days in BSF</span>
 <span class="n">gene_classes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span><span class="s1">&#39;essential&#39;</span><span class="p">,</span><span class="s1">&#39;gene_score.txt&#39;</span><span class="p">),</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">mapping</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">gene_classes</span><span class="p">,</span><span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Input ID&#39;</span><span class="p">,</span><span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">)</span>
 <span class="n">mapping</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s1">&#39;Ortholog Group&#39;</span><span class="p">)</span>
@@ -12110,7 +12111,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21363968">21363968</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mapping</span> <span class="o">=</span> <span class="n">mapping</span><span class="p">[[</span><span class="s1">&#39;Gene ID&#39;</span><span class="p">,</span><span class="s1">&#39;Z_score&#39;</span><span class="p">]]</span>
@@ -12127,7 +12128,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21363968">21363968</a> and
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[9]:</div>
+<div class="prompt output_prompt">Out[82]:</div>
 
 
 
@@ -12197,19 +12198,6 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21363968">21363968</a> and
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_dfs</span> <span class="o">=</span> <span class="n">ml_dfs</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">mapping</span><span class="p">,</span><span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Gene ID&#39;</span><span class="p">,</span><span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;Gene ID&#39;</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#ml_dfs.isna().sum(axis=1).value_counts()</span>
 </pre></div>
 
 </div>
@@ -12465,7 +12453,7 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21363968">21363968</a> and
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.2_files/TriTrypDB_ML_1.2_16_1.png"
+<img src="TriTrypDB_ML_1.2_files/TriTrypDB_ML_1.2_15_1.png"
 >
 </div>
 
@@ -12674,23 +12662,11 @@ PMID:<a href="https://www.ncbi.nlm.nih.gov/pubmed/21363968">21363968</a> and
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#ml_dfs.sort_values(&#39;Z_score&#39;).head(500)[&#39;Z_score&#39;].describe()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">to_sample</span><span class="o">=</span><span class="mi">400</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#we get the top 400 and the bottom 400 according to the z-score</span>
+<span class="n">to_sample</span><span class="o">=</span><span class="mi">400</span>
 <span class="n">ml_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ml_dfs</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Z_score&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">to_sample</span><span class="p">),</span>
                    <span class="n">ml_dfs</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Z_score&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">to_sample</span><span class="p">)])</span>
 </pre></div>
@@ -13162,10 +13138,10 @@ Name: target, dtype: int64</pre>
 
  
  
-<div id="18d2a22b-559f-4542-8314-f7b28aebd724"></div>
+<div id="a20df033-6efd-46bb-89a8-a8aa1b9d6a30"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#18d2a22b-559f-4542-8314-f7b28aebd724');
+var element = $('#a20df033-6efd-46bb-89a8-a8aa1b9d6a30');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "ef720f1605c64740b0e8d492ab9d39b3", "version_major": 2, "version_minor": 0}
@@ -13273,10 +13249,10 @@ Name: target, dtype: int64
 
  
  
-<div id="d10006a3-eba9-4120-87f9-41a58ef4c853"></div>
+<div id="a471a6f3-3271-48a2-bb6f-d8ddb9bfb19e"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#d10006a3-eba9-4120-87f9-41a58ef4c853');
+var element = $('#a471a6f3-3271-48a2-bb6f-d8ddb9bfb19e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "cb3435709bf94b8d875af89a0bf84004", "version_major": 2, "version_minor": 0}
@@ -13304,7 +13280,7 @@ var element = $('#d10006a3-eba9-4120-87f9-41a58ef4c853');
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.2_files/TriTrypDB_ML_1.2_36_3.png"
+<img src="TriTrypDB_ML_1.2_files/TriTrypDB_ML_1.2_34_3.png"
 >
 </div>
 
@@ -13343,7 +13319,7 @@ Confusion Matrix
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.2_files/TriTrypDB_ML_1.2_36_5.png"
+<img src="TriTrypDB_ML_1.2_files/TriTrypDB_ML_1.2_34_5.png"
 >
 </div>
 
@@ -13440,10 +13416,10 @@ Confusion Matrix
 
  
  
-<div id="c8ee3a43-74c1-4617-a81d-6699dfebad3a"></div>
+<div id="b2b8916e-444d-48e0-9ae7-0ec5f0e80b9a"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#c8ee3a43-74c1-4617-a81d-6699dfebad3a');
+var element = $('#b2b8916e-444d-48e0-9ae7-0ec5f0e80b9a');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "75fb0b3fa79d4ad8a83af2cb4bde27c2", "version_major": 2, "version_minor": 0}
@@ -13512,10 +13488,10 @@ Name: target, dtype: int64
 
  
  
-<div id="db4b49cd-0b6a-4796-8d26-4e163a407b5f"></div>
+<div id="6c25e5c6-b1c2-40fe-83d6-bb3505998b7e"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#db4b49cd-0b6a-4796-8d26-4e163a407b5f');
+var element = $('#6c25e5c6-b1c2-40fe-83d6-bb3505998b7e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "a89728b297d94dbb8ff6192e050b1605", "version_major": 2, "version_minor": 0}
@@ -13543,7 +13519,7 @@ var element = $('#db4b49cd-0b6a-4796-8d26-4e163a407b5f');
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.2_files/TriTrypDB_ML_1.2_40_3.png"
+<img src="TriTrypDB_ML_1.2_files/TriTrypDB_ML_1.2_38_3.png"
 >
 </div>
 
@@ -13582,7 +13558,7 @@ Confusion Matrix
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.2_files/TriTrypDB_ML_1.2_40_5.png"
+<img src="TriTrypDB_ML_1.2_files/TriTrypDB_ML_1.2_38_5.png"
 >
 </div>
 
@@ -13653,10 +13629,10 @@ Confusion Matrix
 
  
  
-<div id="713f2b5a-bbc2-4ed5-97d5-2f2199b663fe"></div>
+<div id="d28c429b-2e52-4598-a9f8-7763f9005ee1"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#713f2b5a-bbc2-4ed5-97d5-2f2199b663fe');
+var element = $('#d28c429b-2e52-4598-a9f8-7763f9005ee1');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "2538c1de171b44278c04b1a065662ac3", "version_major": 2, "version_minor": 0}
@@ -13675,10 +13651,10 @@ var element = $('#713f2b5a-bbc2-4ed5-97d5-2f2199b663fe');
 
  
  
-<div id="995d560f-d754-4a9f-8e20-4b9ce83a961d"></div>
+<div id="1a625c87-d69c-49df-b9e2-98628b24eeab"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#995d560f-d754-4a9f-8e20-4b9ce83a961d');
+var element = $('#1a625c87-d69c-49df-b9e2-98628b24eeab');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "50530c78050346e4a4ace0cfe9bbd8d5", "version_major": 2, "version_minor": 0}
@@ -13708,10 +13684,10 @@ var element = $('#995d560f-d754-4a9f-8e20-4b9ce83a961d');
 
  
  
-<div id="0c0c40f5-c6f1-47c6-b8ef-47ff0626b7af"></div>
+<div id="c5c37217-2eac-4bbc-a67b-30283e2627f2"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#0c0c40f5-c6f1-47c6-b8ef-47ff0626b7af');
+var element = $('#c5c37217-2eac-4bbc-a67b-30283e2627f2');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "930c8673fbf242a481232957bfe45a5f", "version_major": 2, "version_minor": 0}
@@ -13741,10 +13717,10 @@ var element = $('#0c0c40f5-c6f1-47c6-b8ef-47ff0626b7af');
 
  
  
-<div id="5d6e83bb-c351-4a64-825c-23781f972a08"></div>
+<div id="b023a631-ac12-4339-a8c0-2b2e6447153c"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#5d6e83bb-c351-4a64-825c-23781f972a08');
+var element = $('#b023a631-ac12-4339-a8c0-2b2e6447153c');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "2e801092eb2d4ca9890cd4ffc1fcd900", "version_major": 2, "version_minor": 0}
@@ -13774,10 +13750,10 @@ var element = $('#5d6e83bb-c351-4a64-825c-23781f972a08');
 
  
  
-<div id="0b481dfd-3860-4d28-bed9-5991ec954669"></div>
+<div id="ff35ae41-5180-4c76-94b4-764b601d3396"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#0b481dfd-3860-4d28-bed9-5991ec954669');
+var element = $('#ff35ae41-5180-4c76-94b4-764b601d3396');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "a3018686951547daae5a6b7c6adeb9e1", "version_major": 2, "version_minor": 0}
@@ -13807,10 +13783,10 @@ var element = $('#0b481dfd-3860-4d28-bed9-5991ec954669');
 
  
  
-<div id="0d4d9de4-781f-465b-9a59-99d748b64eb6"></div>
+<div id="48aa4693-2949-4707-8383-7efd0ad92bc3"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#0d4d9de4-781f-465b-9a59-99d748b64eb6');
+var element = $('#48aa4693-2949-4707-8383-7efd0ad92bc3');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "12d1b9c79ba144b1bf212b8ae5d95731", "version_major": 2, "version_minor": 0}
@@ -13840,10 +13816,10 @@ var element = $('#0d4d9de4-781f-465b-9a59-99d748b64eb6');
 
  
  
-<div id="97f78185-d5a2-4852-b3fb-8eb56031c835"></div>
+<div id="168895aa-daf7-46b6-9a52-975560ba8ddb"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#97f78185-d5a2-4852-b3fb-8eb56031c835');
+var element = $('#168895aa-daf7-46b6-9a52-975560ba8ddb');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "3e0c6ca9e0a24fdb9988c6be0fe5e302", "version_major": 2, "version_minor": 0}
@@ -13873,10 +13849,10 @@ var element = $('#97f78185-d5a2-4852-b3fb-8eb56031c835');
 
  
  
-<div id="47027e39-4fa6-4bb3-a227-b703bafbc930"></div>
+<div id="38e1c59a-9518-4707-815d-8f847fe00346"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#47027e39-4fa6-4bb3-a227-b703bafbc930');
+var element = $('#38e1c59a-9518-4707-815d-8f847fe00346');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "0f131c93ae78416d96fc64eec9e7f6b5", "version_major": 2, "version_minor": 0}
@@ -13906,10 +13882,10 @@ var element = $('#47027e39-4fa6-4bb3-a227-b703bafbc930');
 
  
  
-<div id="54640ad8-b461-4f27-af31-906a4da06f92"></div>
+<div id="8a6b3d35-3019-45c6-b314-f161498b197d"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#54640ad8-b461-4f27-af31-906a4da06f92');
+var element = $('#8a6b3d35-3019-45c6-b314-f161498b197d');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "09436bea6a3b44939bc093571f12816f", "version_major": 2, "version_minor": 0}
@@ -13939,10 +13915,10 @@ var element = $('#54640ad8-b461-4f27-af31-906a4da06f92');
 
  
  
-<div id="229405ec-621f-46e7-a1ef-9a3cfd20ba52"></div>
+<div id="dba68e63-2bda-4f5c-ba54-ee1997191cf4"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#229405ec-621f-46e7-a1ef-9a3cfd20ba52');
+var element = $('#dba68e63-2bda-4f5c-ba54-ee1997191cf4');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "b2ced589f64043bfafc7a7ffc97fc5eb", "version_major": 2, "version_minor": 0}
@@ -13972,10 +13948,10 @@ var element = $('#229405ec-621f-46e7-a1ef-9a3cfd20ba52');
 
  
  
-<div id="e39fbba7-01de-4562-971e-670117abc225"></div>
+<div id="8901b283-3603-43c7-9c24-80c85f2d7415"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#e39fbba7-01de-4562-971e-670117abc225');
+var element = $('#8901b283-3603-43c7-9c24-80c85f2d7415');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "aab8bf8670fc4639a2a033b22e8d4db8", "version_major": 2, "version_minor": 0}
@@ -14179,10 +14155,10 @@ Name: target, dtype: int64
 
  
  
-<div id="7ff4bfee-17b4-435d-a33d-b1ee625f7e28"></div>
+<div id="2017c533-9602-42a1-aa9a-1522ce2b9844"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#7ff4bfee-17b4-435d-a33d-b1ee625f7e28');
+var element = $('#2017c533-9602-42a1-aa9a-1522ce2b9844');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "36dd2bad104c4856ad0bda379ae927ea", "version_major": 2, "version_minor": 0}
@@ -14210,7 +14186,7 @@ var element = $('#7ff4bfee-17b4-435d-a33d-b1ee625f7e28');
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.2_files/TriTrypDB_ML_1.2_45_3.png"
+<img src="TriTrypDB_ML_1.2_files/TriTrypDB_ML_1.2_43_3.png"
 >
 </div>
 
@@ -14249,7 +14225,7 @@ Confusion Matrix
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.2_files/TriTrypDB_ML_1.2_45_5.png"
+<img src="TriTrypDB_ML_1.2_files/TriTrypDB_ML_1.2_43_5.png"
 >
 </div>
 
@@ -14361,7 +14337,7 @@ Confusion Matrix
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.2_files/TriTrypDB_ML_1.2_49_0.png"
+<img src="TriTrypDB_ML_1.2_files/TriTrypDB_ML_1.2_47_0.png"
 >
 </div>
 
@@ -14375,7 +14351,7 @@ Confusion Matrix
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this figure the position of the feature on the y-axis of is determined by the feature importance, and the dots (protein/training instances) on the x-axis are arranged accordingly to the SHAP values. The dots are also jittered in the y-axis direction to assess the distribution. The colour code of the dots reflects the value of the feature from low (blue) to high (red). This visualization highlights the relationship between the value of a feature and the impact on the prediction. For example, training instances with low values of the protein abundance in the BSF life stage ('EF_Abundance_BSF') have the highest SHAP values, meaning that low protein abundance values are pushing the model towards a fast half-life prediction.</p>
+<p>In this figure the position of the feature on the y-axis of is determined by the feature importance, and the dots (protein/training instances) on the x-axis are arranged accordingly to the SHAP values. The dots are also jittered in the y-axis direction to assess the distribution. The colour code of the dots reflects the value of the feature from low (blue) to high (red). This visualization highlights the relationship between the value of a feature and the impact on the prediction. For example, training instances with low values of the protein abundance in the BSF life stage ('EF_Abundance_BSF') have the highest SHAP values, meaning that high protein abundance values are pushing the model towards essentiality prediction.</p>
 
 </div>
 </div>
@@ -14455,7 +14431,7 @@ Confusion Matrix
 
 
 <div class="output_png output_subarea ">
-<img src="TriTrypDB_ML_1.2_files/TriTrypDB_ML_1.2_52_0.png"
+<img src="TriTrypDB_ML_1.2_files/TriTrypDB_ML_1.2_50_0.png"
 >
 </div>
 
@@ -14467,14 +14443,42 @@ Confusion Matrix
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[83]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#temp = ml_dfs[[n for n in ml_dfs.columns if n.startswith(&#39;PF_&#39;)]+[&#39;Z_score&#39;]]</span>
-<span class="c1">#corr = temp.corr()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert --to html_toc TriTrypDB_ML_1.2.ipynb
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>[NbConvertApp] Converting notebook TriTrypDB_ML_1.2.ipynb to html_toc
+[NbConvertApp] Support files will be in TriTrypDB_ML_1.2_files\
+[NbConvertApp] Making directory TriTrypDB_ML_1.2_files
+[NbConvertApp] Making directory TriTrypDB_ML_1.2_files
+[NbConvertApp] Making directory TriTrypDB_ML_1.2_files
+[NbConvertApp] Making directory TriTrypDB_ML_1.2_files
+[NbConvertApp] Making directory TriTrypDB_ML_1.2_files
+[NbConvertApp] Making directory TriTrypDB_ML_1.2_files
+[NbConvertApp] Making directory TriTrypDB_ML_1.2_files
+[NbConvertApp] Making directory TriTrypDB_ML_1.2_files
+[NbConvertApp] Making directory TriTrypDB_ML_1.2_files
+[NbConvertApp] Writing 346954 bytes to TriTrypDB_ML_1.2.html
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
